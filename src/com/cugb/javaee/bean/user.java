@@ -1,6 +1,6 @@
 package com.cugb.javaee.bean;
 
-public class user {
+public class User {
 	private String userId;
 	private String username;
 	private String password;

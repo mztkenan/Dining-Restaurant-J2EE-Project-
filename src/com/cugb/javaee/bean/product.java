@@ -1,6 +1,6 @@
 package com.cugb.javaee.bean;
 
-public class product {
+public class Product {
 	private String productId;
 	private String productName;
 	private float productPrice;

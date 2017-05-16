@@ -2,7 +2,7 @@ package com.cugb.javaee.bean;
 
 import java.util.Date;
 
-public class orderInfomation {
+public class OrderInfomation {
 	private String orderId;
 	private String userId;
 	private String orderAddress;

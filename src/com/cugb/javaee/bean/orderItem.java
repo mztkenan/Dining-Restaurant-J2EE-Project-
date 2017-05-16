@@ -1,6 +1,6 @@
 package com.cugb.javaee.bean;
 
-public class orderItem {
+public class OrderItem {
 	private String productId;
 	private String orderId;
 	private String orderItemId;
