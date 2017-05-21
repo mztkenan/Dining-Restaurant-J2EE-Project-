@@ -1,3 +1,5 @@
+<%@page import="com.cugb.javaee.bean.Product"%>
+<%@page import="java.awt.event.ItemEvent"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -156,17 +158,17 @@
 							border=0>
 							<TBODY>
 							<% 
-// 				               ProcuctDao productDao = new ProcuctDao(); 
-// 				               ArrayList<Product> list = ProcuctDao.getAllProduct();
-// 				               if(list!=null&&list.size()>0)
-// 				               {
-// 				                for(int i=0;i<list.size();i=i+2)
-// 				                {
-// 				                   Items item1 = list.get(i);
-// 				                   Items item2 = null;
-// 				                   if(list.get(i+1)!=null){
-// 				                	   item2=list.get(i+1);
-// 				                   }
+				               ProcuctDao productDao = new ProcuctDao(); 
+				               ArrayList<Product> list = ProcuctDao.getAllProduct();
+				               if(list!=null&&list.size()>0)
+				               {
+				                for(int i=0;i<list.size();i=i+2)
+				                {
+				                   Product product1 = list.get(i);
+				                   Product product2 = null;
+				                   if(list.get(i+1)!=null){
+				                	   product2=list.get(i+1);
+				                   }
 				           %>   
 								<tr>
 									<TD >
@@ -175,24 +177,24 @@
 											<TR>
 												<TD vAlign=top width=90 height=90><A href=#
 													target=_blank><IMG height=80 alt=点击图片查看内容
-													src="images/500047.jpg" width=80 border=0></A></TD>
+													src=<%=product1.getProductImage()%> width=80 border=0></A></TD>
 												<TD vAlign=top>
 												<TABLE cellSpacing=1 cellPadding=0 width="100%" align=center
 													border=0>
 													<TBODY>
 														<TR>
-															<TD><A href=# target=_blank><STRONG>皮蛋瘦肉粥</STRONG></A></TD>
+															<TD><A href=# target=_blank><STRONG><%=product1.getProductName()%></STRONG></A></TD>
 														</TR>
 														<TR>
-															<TD height=21><FONT color=#ff0000>现价：人民币5元</FONT><BR>
-															<a href="#">美味可口</a>！</TD>
+															<TD height=21><FONT color=#ff0000>现价：人民币<%=product1.getProductPrice()%>元</FONT><BR>
+															<%=product1.getProductDescription()%>！</TD>
 														</TR>
 													</TBODY>
 												</TABLE>
 												</TD>
 											</TR>
 											<TR>
-												<TD height=28>编号: 22</TD>
+												<TD height=28>编号: <%=product1.getProductId()%></TD>
 												<TD>
 												<TABLE cellSpacing=1 cellPadding=0 width=145 border=0>
 													<TBODY>
@@ -212,30 +214,33 @@
 										</TBODY>
 									</TABLE>
 									</TD>
+									<%
+										if(product2!=null){
+									%>
 									<TD>
 									<TABLE height="100%" cellSpacing=1 cellPadding=2 border=0>
 										<TBODY>
 											<TR>
 												<TD vAlign=top width=90 height=90><A href=#
 													target=_blank><IMG height=80 alt=点击图片查看内容
-													src="images/500046.jpg" width=80 border=0></A></TD>
+													src=<%=product2.getProductImage()%> width=80 border=0></A></TD>
 												<TD vAlign=top>
 												<TABLE cellSpacing=1 cellPadding=0 width="100%" align=center
 													border=0>
 													<TBODY>
 														<TR>
-															<TD><A href=# target=_blank><STRONG>清炒时蔬</STRONG></A></TD>
+															<TD><A href=# target=_blank><STRONG><%=product2.getProductName() %></STRONG></A></TD>
 														</TR>
 														<TR>
-															<TD height=21><FONT color=#ff0000>现价：人民币5元</FONT><BR>
-															时令绿色蔬菜！</TD>
+															<TD height=21><FONT color=#ff0000>现价：人民币<%=product2.getProductPrice() %>元</FONT><BR>
+															<%=product2.getProductDescription() %>!</TD>
 														</TR>
 													</TBODY>
 												</TABLE>
 												</TD>
 											</TR>
 											<TR>
-												<TD height=28>编号: 21</TD>
+												<TD height=28>编号: <%=product2.getProductId() %></TD>
 												<TD>
 												<TABLE cellSpacing=1 cellPadding=0 width=145 border=0>
 													<TBODY>
@@ -254,10 +259,13 @@
 										</TBODY>
 									</TABLE>
 									</TD>
+									<%
+										}
+									%>
 								</tr>
 						   <%
-// 				                }
-// 				               } 
+				                }
+				               } 
 				           %>
 							</TBODY>
 						</TABLE>
