@@ -4,7 +4,7 @@ public class OrderStatus {
 	static public void PayDeal(){
 		//用户付款
 		if(true){
-			//付款成功，显示成功消息
+			//付款成功，对话框显示成功消息
 		}else{
 			//付款失败，对话框显示失败消息
 		}
