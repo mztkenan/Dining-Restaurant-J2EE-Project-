@@ -162,6 +162,7 @@
 							<% 
 				               ProductDaoImpl productDaoImpl = new ProductDaoImpl(); 
 				               ArrayList<Product> list = productDaoImpl.findProducts();
+				               System.out.print(list);
 				               
 				               if(list!=null&&list.size()>0)
 				               {
@@ -169,7 +170,7 @@
 				                {
 				                   Product product1 = list.get(i);
 				                   Product product2 = null;
-				                   if(list.get(i+1)!=null){
+				                   if(i+1<list.size()){
 				                	   product2=list.get(i+1);
 				                   }
 				           %>   

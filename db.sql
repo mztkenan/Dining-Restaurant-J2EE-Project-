@@ -1,49 +1,83 @@
-create table test(
-userid varchar(20) primary key,
-username varchar(20),
-password varchar(20)
-);
-insert into test values(1,"zhangsan",123);
-insert into test values(2,"lisi",12);
-insert into test values(3,"wangwu",123);
+/*==============================================================*/
+/* DBMS name:      MySQL 5.0                                    */
+/* Created on:     2017/5/16 8:56:56                            */
+/*==============================================================*/
 
-create database myf ;
-use myf;
 
-create table test(
-userid varchar(20),
-username varchar(20),
-password varchar(20)
-);
+drop table if exists orderInfomation;
 
-select * from test;
+drop table if exists orderItem;
+
+drop table if exists product;
+
+drop table if exists user;
 
 use sys;
-create table student(
-stuid varchar(20),
-stuname varchar(20),
-age int,
-gender varchar(20),
-birthday date,
-address varchar(30)
+/*==============================================================*/
+/* Table: orderInfomation                                       */
+/*==============================================================*/
+create table orderInfomation
+(
+   orderId              varchar(50) not null,
+   userId               varchar(50),
+   orderAddress         varchar(100) not null,
+   orderPhone           varchar(15) not null,
+   orderDate            datetime not null,
+   orderPrice           float not null,
+   orderState           varchar(50) not null,
+   orderRemark          varchar(50),
+   primary key (orderId)
 );
 
-select * from sys.student;
-
-insert into student values("001","zhangsan",18,"male","1996/01/01","cugb");
-insert into student values("002","wangbing",17,"female","1996/01/01","cugb");
-insert into student values("002","章斌斌",17,"female","1996/01/01","cugb");
-
-
-create table aaa(
-aaa varchar(20) key
+/*==============================================================*/
+/* Table: orderItem                                             */
+/*==============================================================*/
+create table orderItem
+(
+   productId            varchar(50) not null,
+   orderId              varchar(50) not null,
+   orderItemId          varchar(50) not null,
+   productNum           int not null,
+   orderItemSubtotal    float not null,
+   primary key (productId, orderId)
 );
 
-create table bbb(
-bbb varchar(20),
-stuid varchar(20) ,
- foreign key(stuid) references aaa(aaa) 
+/*==============================================================*/
+/* Table: product                                               */
+/*==============================================================*/
+create table product
+(
+   productId            varchar(50) not null,
+   productName          varchar(100) not null,
+   productPrice         float not null,
+   producRemained       int not null,
+   productDescription   varchar(200),
+   producImage          varchar(100),
+   primary key (productId)
 );
+
+/*==============================================================*/
+/* Table: user                                                  */
+/*==============================================================*/
+create table user
+(
+   userId               varchar(50) not null,
+   username             varchar(50) not null,
+   password             varchar(50) not null,
+   userType             int not null,
+   primary key (userId)
+);
+
+alter table orderInfomation add constraint FK_Relationship_1 foreign key (userId)
+      references user (userId) on delete restrict on update restrict;
+
+alter table orderItem add constraint FK_orderItem foreign key (productId)
+      references product (productId) on delete restrict on update restrict;
+
+alter table orderItem add constraint FK_orderItem2 foreign key (orderId)
+      references orderInfomation (orderId) on delete restrict on update restrict;
+
+
 
 
 
