@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.cugb.javaee.dao.ProductDaoImpl"%>
 <%@page import="com.cugb.javaee.bean.Product"%>
 <%@page import="java.awt.event.ItemEvent"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -158,8 +160,9 @@
 							border=0>
 							<TBODY>
 							<% 
-				               ProcuctDao productDao = new ProcuctDao(); 
-				               ArrayList<Product> list = ProcuctDao.getAllProduct();
+				               ProductDaoImpl productDaoImpl = new ProductDaoImpl(); 
+				               ArrayList<Product> list = productDaoImpl.findProducts();
+				               
 				               if(list!=null&&list.size()>0)
 				               {
 				                for(int i=0;i<list.size();i=i+2)
