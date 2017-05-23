@@ -28,9 +28,9 @@ public class UserLogOut extends HttpServlet {
 	        }  
 	        // 从session中移除登录状态  
 	        session.removeAttribute("user");  
+	        session.invalidate();
 	        // 重定向到首页，URL重写方式  
-	        String url = response.encodeRedirectURL(request.getContextPath()  
-	                + "/index.jsp");  
+	        String url = response.encodeRedirectURL(request.getContextPath() + "/index.jsp");  
 	        response.sendRedirect(url);  
 	}
 

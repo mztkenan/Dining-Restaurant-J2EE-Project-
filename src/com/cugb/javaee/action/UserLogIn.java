@@ -18,9 +18,9 @@ public class UserLogIn extends HttpServlet {
 	protected void doGet(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String username = request.getParameter("username");  
-		String password = request.getParameter("password");
-		//此处需要访问数据库，判断用户名和密码是否正确
+		String loginname = request.getParameter("loginname");  
+		String loginpassword = request.getParameter("loginpassword");
+		//此处需要访问数据库，判断用户名和密码是否正确		
 		if(true){
 			//新建user
 			User user = new User();
@@ -34,7 +34,7 @@ public class UserLogIn extends HttpServlet {
             response.addCookie(cookie);  
             // 登录成功后要存入用户的登录状态，key是用户对象的String形式,
             //value就是用户对象(model)！！别的页面应该能用到  
-            session.setAttribute("user", true);
+            session.setAttribute("user", user);
             // 重定向到首页，URL重写方式  
             String url = response.encodeRedirectURL(request  
                     .getContextPath() + "/index.jsp");  

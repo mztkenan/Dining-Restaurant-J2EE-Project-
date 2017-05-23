@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebRoot/index.jsp=UTF-8
 encoding//src/com/cugb/javaee/dao/BaseDAO.java=UTF-8
 encoding//src/com/cugb/javaee/utils/JDBCUtils.java=UTF-8
 encoding//src/dbcpconfig.properties=UTF-8
