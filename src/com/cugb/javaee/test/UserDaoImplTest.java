@@ -14,12 +14,12 @@ public class UserDaoImplTest {
 	User user = new User();
 	@Before
 	public void setUp() throws Exception {
-		user.setUserId("1");
+		user.setUserId("3");
 		user.setUsername("1");
 		user.setPassword("1");
 		user.setUserType(1);
 	}
-
+/*
 	@Test
 	public void testFindUsers() {
 		iUserDao.findUsers();
@@ -31,13 +31,13 @@ public class UserDaoImplTest {
 		iUserDao.insertUser(user);
 		//fail("Not yet implemented");
 	}
-
+*/
 	@Test
 	public void testFindUser() {
-		iUserDao.findUser(user);
+		System.out.println(iUserDao.findUser(user));
 		//fail("Not yet implemented");
 	}
-
+/*
 	@Test
 	public void testUpdateUser() {
 		user.setPassword("2");
@@ -50,5 +50,24 @@ public class UserDaoImplTest {
 		iUserDao.deleteUser(user);
 		//fail("Not yet implemented");
 	}
+	
+	@Test
+	public void testlogin() {
+		System.out.println(iUserDao.login(user, "1"));
+		System.out.println(iUserDao.login(user, "2"));
+		//fail("Not yet implemented");
+	}
 
+	@Test
+	public void testFindUsername() {
+		System.out.println(iUserDao.findUsername("3"));
+		//fail("Not yet implemented");
+	}
+*/
+	/*
+	@Test
+	public void testCountRows() {
+		System.out.println(iUserDao.countRows());
+		//fail("Not yet implemented");
+	}*/
 }

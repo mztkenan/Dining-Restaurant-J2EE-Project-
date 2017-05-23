@@ -51,7 +51,7 @@ public class OrderInfomationDaoImpl implements IOrderInfomationDao {
 			ps.setString(1, orderInfomation.getOrderId());
 			ps.setString(2, orderInfomation.getUserId());
 			ResultSet rs = ps.executeQuery();
-			if (rs != null){
+			if (rs.next()){
 				ret = true;
 			}
 			JDBCUtils.free(rs, ps, conn);

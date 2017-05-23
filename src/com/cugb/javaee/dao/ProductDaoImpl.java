@@ -48,7 +48,7 @@ public class ProductDaoImpl implements IProductDao {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, product.getProductId());
 			ResultSet rs = ps.executeQuery();
-			if (rs != null){
+			if (rs.next()){
 				ret = true;
 			}
 			JDBCUtils.free(rs, ps, conn);
