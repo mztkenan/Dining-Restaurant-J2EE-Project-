@@ -15,7 +15,7 @@ public class DaoFactoryTest {
 
 	@Test
 	public void testNewInstance() {
-		assertNotNull(DaoFactory.newInstance("UserDAO"));
+		assertNotNull(DaoFactory.newInstance("IUserDAO"));
 	}
 
 }

@@ -7,6 +7,15 @@ public class Product {
 	private int productRemained;
 	private String productDescription;
 	private String productImage;
+	public Product(){}
+	public Product(String productId, String productName, float productPrice, int productRemained, String productDescription, String productImage){
+		this.productId = productId;
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.productRemained = productRemained;
+		this.productDescription = productDescription;
+		this.productImage = productImage;
+	}
 	public String getProductId() {
 		return productId;
 	}

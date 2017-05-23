@@ -72,7 +72,7 @@ public class OrderInfomationDaoImpl implements IOrderInfomationDao {
 			ps.setString(2, orderInfomation.getUserId());
 			ps.setString(3, orderInfomation.getOrderAddress());
 			ps.setString(4, orderInfomation.getOrderPhone());
-			//ps.setTimestamp(5, orderInfomation.getOrderDate());
+			ps.setTimestamp(5, orderInfomation.getOrderDate());
 			ps.setFloat(6, orderInfomation.getOrderPrice());
 			ps.setString(7, orderInfomation.getOrderState());
 			ps.setString(8, orderInfomation.getOrderRemark());
@@ -87,12 +87,40 @@ public class OrderInfomationDaoImpl implements IOrderInfomationDao {
 	@Override
 	public int updateOrderInfomation(OrderInfomation orderInfomation) {
 		// TODO Auto-generated method stub
+		try {
+			String sql = "update orderInfomation set orderAddress=?,orderPhone=?,orderDate=?,orderPrice=?,orderState=?,orderRemark=? where orderId=? and userId=?";
+			Connection conn = JDBCUtils.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, orderInfomation.getOrderAddress());
+			ps.setString(2, orderInfomation.getOrderPhone());
+			ps.setTimestamp(3, orderInfomation.getOrderDate());
+			ps.setFloat(4, orderInfomation.getOrderPrice());
+			ps.setString(5, orderInfomation.getOrderState());
+			ps.setString(6, orderInfomation.getOrderRemark());
+			ps.setString(7, orderInfomation.getOrderId());
+			ps.setString(8, orderInfomation.getUserId());
+			int rs = ps.executeUpdate();
+			JDBCUtils.free(rs, ps, conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return 0;
 	}
 
 	@Override
 	public int deleteOrderInfomation(OrderInfomation orderInfomation) {
 		// TODO Auto-generated method stub
+		try {
+			String sql = "delete from orderInfomation where orderId=? and userId=?";
+			Connection conn = JDBCUtils.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, orderInfomation.getOrderId());
+			ps.setString(2, orderInfomation.getUserId());
+			int rs = ps.executeUpdate();
+			JDBCUtils.free(rs, ps, conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return 0;
 	}
 

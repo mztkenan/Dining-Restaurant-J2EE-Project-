@@ -6,6 +6,14 @@ public class OrderItem {
 	private String orderItemId;
 	private int productNum;
 	private float orderItemSubtotal;
+	public OrderItem(){}
+	public OrderItem(String productId, String orderId, String orderItemId, int productNum, float orderItemSubtotal){
+		this.productId = productId;
+		this.orderId = orderId;
+		this.orderItemId = orderItemId;
+		this.productNum = productNum;
+		this.orderItemSubtotal = orderItemSubtotal;
+	}
 	public String getProductId() {
 		return productId;
 	}
