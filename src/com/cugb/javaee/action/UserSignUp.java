@@ -18,13 +18,10 @@ public class UserSignUp extends HttpServlet {
 		//用户注册
 		if(true){
 			//判断用户名是否合法
-			
-			
 			JOptionPane.showMessageDialog(null, "用户名不合法或者已经被注册", "注意", JOptionPane.ERROR_MESSAGE);   
 		}
 		else if(!passWord.equals(passWord2)){
 			//两次密码是否相同并合法
-			
 			JOptionPane.showMessageDialog(null, "两次密码不一致", "注意", JOptionPane.ERROR_MESSAGE);   
 		}
 		else{

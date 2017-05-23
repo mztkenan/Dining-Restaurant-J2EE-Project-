@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cugb.javaee.bean.User;
+import com.cugb.javaee.dao.IUserDao;
+import com.cugb.javaee.utils.DaoFactory;
 
 public class UserLogIn extends HttpServlet {
 
@@ -20,11 +22,11 @@ public class UserLogIn extends HttpServlet {
 		// TODO Auto-generated method stub
 		String loginname = request.getParameter("loginname");  
 		String loginpassword = request.getParameter("loginpassword");
-		//此处需要访问数据库，判断用户名和密码是否正确		
-		if(true){
-			//新建user
-			User user = new User();
-			
+		//此处需要访问数据库，判断用户名和密码是否正确	
+		IUserDao iUserDao = (IUserDao) DaoFactory.newInstance("IUserDao");
+		User user = new User();
+		user.setUsername(loginname);
+		if(iUserDao.login(user,loginpassword)){		
 	    	HttpSession session = request.getSession();  
             // 手动设置session的有效期为30分钟  
             String sessionId = session.getId();  
