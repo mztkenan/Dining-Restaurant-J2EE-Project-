@@ -24,7 +24,7 @@ import com.cugb.javaee.utils.DaoFactory;
  *
  */
 public class AddItems extends HttpServlet {
-
+	//思路混乱，没有写好
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -37,7 +37,7 @@ public class AddItems extends HttpServlet {
 //				float orderPrice,String orderState, String orderRemark);
 		String productNumbers = request.getParameter("PNumber");
 		IOrderInfomationDao iOrderInfomation = (IOrderInfomationDao) DaoFactory.newInstance("IOrderInfomationDao");
-		iOrderInfomation.insertOrderInfomation(orderInfomation);
+		//iOrderInfomation.insertOrderInfomation(orderInfomation);
 	}
 
 	@Override

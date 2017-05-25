@@ -12,7 +12,9 @@ public class OrderInfomation {
 	private String orderState;
 	private String orderRemark;
 	public OrderInfomation(){}
-	public OrderInfomation(String orderId, String userId, String orderAddress,	String orderPhone, Timestamp orderDate, float orderPrice,String orderState, String orderRemark){
+	public OrderInfomation(String orderId, String userId, String orderAddress,
+			String orderPhone, Timestamp orderDate, float orderPrice,String orderState, 
+			String orderRemark){
 		this.orderId = orderId;
 		this.userId = userId;
 		this.orderAddress = orderAddress;

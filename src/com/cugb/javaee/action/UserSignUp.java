@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
+import com.cugb.javaee.bean.User;
+import com.cugb.javaee.dao.IUserDao;
+import com.cugb.javaee.utils.DaoFactory;
+
 public class UserSignUp extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,7 +30,10 @@ public class UserSignUp extends HttpServlet {
 		}
 		else{
 			//插入用户数据，对话框显示成功消息
-			
+			IUserDao iUserDao = (IUserDao) DaoFactory.newInstance("IUserDao");
+			User user = new User("0",userName,passWord,1);
+			user.setUserId(Integer.toString(iUserDao.countRows()));
+			iUserDao.insertUser(user);
 			//跳转欢迎界面
 			String url = response.encodeRedirectURL(request.getContextPath() + "/index.jsp");  
 	        response.sendRedirect(url);  
