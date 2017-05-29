@@ -124,4 +124,23 @@ public class OrderInfomationDaoImpl implements IOrderInfomationDao {
 		return 0;
 	}
 
+	@Override
+	public boolean updateOrderInfomation(String userId, String orderId, String oldType, String newType) {
+		// TODO Auto-generated method stub
+		try {
+			String sql = "update orderInfomation set orderState=? where orderId=? and userId=? and orderState=?";
+			Connection conn = JDBCUtils.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, newType);
+			ps.setString(2, orderId);
+			ps.setString(3, userId);
+			ps.setString(4, oldType);
+			int rs = ps.executeUpdate();
+			JDBCUtils.free(rs, ps, conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 }

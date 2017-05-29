@@ -10,4 +10,6 @@ public interface IProductDao {
 	public int insertProduct(Product product);
 	public int updateProduct(Product product);
 	public int deleteProduct(Product product);
+	public Product findProduct(String productid); 
+	public boolean updateProductNumber(String productid,int number);
 }
