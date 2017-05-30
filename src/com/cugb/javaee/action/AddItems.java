@@ -4,7 +4,9 @@
 package com.cugb.javaee.action;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.cugb.javaee.bean.CartItem;
 import com.cugb.javaee.bean.OrderInfomation;
 import com.cugb.javaee.bean.Product;
 import com.cugb.javaee.bean.User;
@@ -29,15 +32,24 @@ public class AddItems extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String productId = request.getParameter("PID");
-		Product product = new Product();
-		HttpSession session = request.getSession(false); 
-		User user = (User) session.getAttribute("user");
-//		OrderInfomation orderInfomation = new OrderInfomation(String orderId, user.getUserId(), 
-//				String orderAddress,	String orderPhone, Timestamp orderDate, 
-//				float orderPrice,String orderState, String orderRemark);
-		String productNumbers = request.getParameter("PNumber");
-		IOrderInfomationDao iOrderInfomation = (IOrderInfomationDao) DaoFactory.newInstance("IOrderInfomationDao");
-		//iOrderInfomation.insertOrderInfomation(orderInfomation);
+		String pnumber = request.getParameter("PNumber");
+		//形成购物车变量
+		CartItem cartItem=new CartItem();
+		cartItem.getDish().setProductId("PID");
+		cartItem.setQuantity(Integer.parseInt(pnumber));
+		//把购物车变量放进session，用arraylist形式来组织
+		HttpSession session = request.getSession(false);
+		if(session == null){
+			ArrayList<CartItem> cartItemArray=new ArrayList<CartItem>();
+			cartItemArray.add(cartItem);
+			session.setAttribute("carItemArray", cartItemArray);
+		}else{
+			ArrayList<CartItem> cartItemArray=(ArrayList<CartItem>) session.getAttribute("carItemArray");
+			cartItemArray.add(cartItem);
+			//覆盖旧变量
+			session.setAttribute("carItemArray", cartItemArray);
+		}
+
 	}
 
 	@Override
