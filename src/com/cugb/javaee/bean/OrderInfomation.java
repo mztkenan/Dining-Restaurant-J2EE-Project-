@@ -20,7 +20,7 @@ public class OrderInfomation {
 		this.orderAddress = orderAddress;
 		this.orderPhone = orderPhone;
 		this.orderDate = orderDate;      
-		this.orderPrice = orderPrice;;
+		this.orderPrice = orderPrice;
 		this.orderState = orderState;
 		this.orderRemark = orderRemark;
 	}
