@@ -51,6 +51,7 @@ public class BaseDAO {
 		ArrayList objs = new ArrayList();
 		try {
 			conn = JDBCUtils.getConnection();
+			System.out.println(sql);
 			ps = conn.prepareStatement(sql);
 			if(params != null){
 				ParameterMetaData pm = ps.getParameterMetaData();

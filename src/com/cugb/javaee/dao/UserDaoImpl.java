@@ -45,7 +45,7 @@ public class UserDaoImpl implements IUserDao {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, user.getUserId());
 			ResultSet rs = ps.executeQuery();
-			if (rs != null){
+			if (rs.next()){
 				ret = true;
 			}
 			JDBCUtils.free(rs, ps, conn);
@@ -109,4 +109,63 @@ public class UserDaoImpl implements IUserDao {
 		return 0;
 	}
 
+	@Override
+	public boolean login(User user, String password) {
+		// TODO Auto-generated method stub
+		boolean ret = false;
+		try {
+			String sql = "select * from user where username=?";
+			Connection conn = JDBCUtils.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, user.getUsername());
+			ResultSet rs = ps.executeQuery();
+			if (rs.next() && rs.getString(3).equals(password)){
+				ret = true;
+			}
+			JDBCUtils.free(rs, ps, conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
+
+	@Override
+	public boolean findUsername(String username) {
+		// TODO Auto-generated method stub
+		boolean ret = false;
+		try {
+			String sql = "select * from user where username=?";
+			Connection conn = JDBCUtils.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, username);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()){
+				ret = true;
+			}
+			JDBCUtils.free(rs, ps, conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
+
+	@Override
+	public int countRows() {
+		// TODO Auto-generated method stub
+		int ret = 0;
+		try {
+			String sql = "select count(*) from user";
+			Connection conn = JDBCUtils.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()){
+				ret = rs.getInt(1);
+			}
+			JDBCUtils.free(rs, ps, conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
+	
 }

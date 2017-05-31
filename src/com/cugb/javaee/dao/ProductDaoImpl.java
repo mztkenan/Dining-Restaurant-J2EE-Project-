@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.cugb.javaee.bean.Product;
 import com.cugb.javaee.bean.Product;
+import com.cugb.javaee.utils.DaoFactory;
 import com.cugb.javaee.utils.JDBCUtils;
 
 public class ProductDaoImpl extends BaseDAO implements IProductDao {
@@ -49,7 +50,7 @@ public class ProductDaoImpl extends BaseDAO implements IProductDao {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, product.getProductId());
 			ResultSet rs = ps.executeQuery();
-			if (rs != null){
+			if (rs.next()){
 				ret = true;
 			}
 			JDBCUtils.free(rs, ps, conn);
@@ -128,6 +129,49 @@ public class ProductDaoImpl extends BaseDAO implements IProductDao {
 	public ArrayList<Product> findDishesBySize(String strsql, Object[] params) {
 		// TODO Auto-generated method stub
 		return findObjs(strsql,params,Product.class);
+	}
+
+	public Product findProduct(String productid) {
+		// TODO Auto-generated method stub
+		Product product = new Product();
+		try {
+			String sql = "select * from product where productId=?";
+			Connection conn = JDBCUtils.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, productid);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()){
+				product.setProductId(rs.getString(1));
+				product.setProductName(rs.getString(2));
+				product.setProductPrice(rs.getFloat(3));
+				product.setProductRemained(rs.getInt(4));
+				product.setProductDescription(rs.getString(5));
+				product.setProductImage(rs.getString(6));
+			}
+			JDBCUtils.free(rs, ps, conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return product;
+	}
+
+	@Override
+	public boolean updateProductNumber(String productid, int number) {
+		// TODO Auto-generated method stub
+		IProductDao iProductDao = (IProductDao) DaoFactory.newInstance("IproductDao");
+		Product product = iProductDao.findProduct(productid);
+		try {
+			String sql = "update product set productRemained=? where productId=?";
+			Connection conn = JDBCUtils.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, product.getProductRemained()-number);
+			ps.setString(2, product.getProductId());
+			int rs = ps.executeUpdate();
+			JDBCUtils.free(rs, ps, conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }

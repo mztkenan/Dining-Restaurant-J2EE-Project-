@@ -24,6 +24,7 @@ public class JDBCUtilsTest {
 			System.out.println(conn);
 			conn.close();
 		}
+//		assertNotNull(JDBCUtils.getConnection());
 	}
 
 }

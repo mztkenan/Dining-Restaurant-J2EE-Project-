@@ -12,4 +12,6 @@ public interface IProductDao {
 	public int deleteProduct(Product product);
 	public int getTotalNum();
 	public ArrayList<Product> findDishesBySize(String strsql, Object[] params);
+	public Product findProduct(String productid); 
+	public boolean updateProductNumber(String productid,int number);
 }

@@ -10,4 +10,5 @@ public interface IOrderInfomationDao {
 	public int insertOrderInfomation(OrderInfomation orderInfomation);
 	public int updateOrderInfomation(OrderInfomation orderInfomation);
 	public int deleteOrderInfomation(OrderInfomation orderInfomation);
+	public boolean updateOrderInfomation(String userId,String orderId,String oldType,String newType);
 }
