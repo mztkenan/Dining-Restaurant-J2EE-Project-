@@ -10,8 +10,9 @@ import com.cugb.javaee.bean.Product;
 import com.cugb.javaee.bean.Product;
 import com.cugb.javaee.utils.JDBCUtils;
 
-public class ProductDaoImpl implements IProductDao {
+public class ProductDaoImpl extends BaseDAO implements IProductDao {
 
+	//XXX 由于继承了baseDao可以简化
 	@Override
 	public ArrayList<Product> findProducts() {
 		// TODO Auto-generated method stub
@@ -114,6 +115,19 @@ public class ProductDaoImpl implements IProductDao {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	@Override
+	public int getTotalNum() {
+		// TODO Auto-generated method stub
+		String sqlTable="product";
+		return getTotalRecords(sqlTable);
+	}
+
+	@Override
+	public ArrayList<Product> findDishesBySize(String strsql, Object[] params) {
+		// TODO Auto-generated method stub
+		return findObjs(strsql,params,Product.class);
 	}
 
 }

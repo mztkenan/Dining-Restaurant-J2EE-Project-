@@ -14,6 +14,7 @@ import com.cugb.javaee.utils.JDBCUtils;
 
 
 public class BaseDAO {
+	//XXX 可以删除
 	public ArrayList findObjs(String sql,Class clazz){
 		Connection conn = null;
 		PreparedStatement ps =null;
@@ -22,6 +23,42 @@ public class BaseDAO {
 		try {
 			conn = JDBCUtils.getConnection();
 			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()){
+				Object obj = mappingObj(rs,clazz);
+				objs.add(obj);
+			}
+			JDBCUtils.free(rs, ps, conn);
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}		
+		return objs;
+	}
+	public ArrayList findObjs(String sql,Object[] params,Class clazz){
+		Connection conn = null;
+		PreparedStatement ps =null;
+		ResultSet rs = null;
+		ArrayList objs = new ArrayList();
+		try {
+			conn = JDBCUtils.getConnection();
+			ps = conn.prepareStatement(sql);
+			if(params != null){
+				ParameterMetaData pm = ps.getParameterMetaData();
+				for(int i=1;i<=pm.getParameterCount();i++){
+					ps.setObject(i, params[i-1]);
+				}	
+			}
+			System.out.println(ps);
 			rs = ps.executeQuery();
 			while(rs.next()){
 				Object obj = mappingObj(rs,clazz);
@@ -56,6 +93,7 @@ public class BaseDAO {
 			// 构造当前列的set方法名称
 			String colname = meta.getColumnLabel(i);
 			String methodname = "set" + colname;
+			System.out.println(rs.getObject(i));
 			// 循环查找同名方法，并通过反射调用该方法，设置属性
 			for(Method method:methods){
 				if(method.getName().equals(methodname)){
@@ -123,5 +161,24 @@ public class BaseDAO {
 			return 0;
 		}
 		
+	}
+	
+	public int getTotalRecords(String sqlTable){
+		int count = 0;
+		try {
+			String sql="select count(*) from "+sqlTable;
+			Connection conn = JDBCUtils.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()){
+				count = rs.getInt(1);
+			}
+			JDBCUtils.free(rs, ps, conn);
+		}catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		}
+		return count;
 	}
 }
