@@ -49,9 +49,9 @@ public class OrderPay extends HttpServlet{
 		for(int i=0; i < cartItemArray.size() ; i++){
 			//改变订单状态
 			Product product = iProductDao.findProduct(cartItemArray.get(i).getDish().getProductId());
-			Double prise = (double) (cartItemArray.get(i).getQuantity()*product.getProductPrice());
+			Float prise = (Float) (cartItemArray.get(i).getQuantity()*product.getProductPrice());
 			String OrderId=iOrderInfomationDao.countOrderInfomation();
-			OrderInfomation orderInfomation = new OrderInfomation(OrderId,user.getUserId(),orderAddress,orderPhone,dateTime,prise.toString(),"Unpay","");
+			OrderInfomation orderInfomation = new OrderInfomation(OrderId,user.getUserId(),orderAddress,orderPhone,dateTime,prise,"Unpay","");
 			iOrderInfomationDao.insertOrderInfomation(orderInfomation);
 			iOrderInfomationDao.updateOrderInfomation(user.getUserId(), OrderId, "Unpay", "Paied");
 			//减少库存
