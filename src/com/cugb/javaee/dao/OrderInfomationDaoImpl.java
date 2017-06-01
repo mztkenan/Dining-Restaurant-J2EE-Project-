@@ -143,4 +143,21 @@ public class OrderInfomationDaoImpl implements IOrderInfomationDao {
 		return false;
 	}
 
+	public String countOrderInfomation() {
+		// TODO Auto-generated method stub
+		String ret = "0";
+		try {
+			String sql = "select count(*) from user";
+			Connection conn = JDBCUtils.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()){
+				ret = Integer.toString(rs.getInt(1));
+			}
+			JDBCUtils.free(rs, ps, conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
 }
