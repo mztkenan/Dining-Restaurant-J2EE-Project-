@@ -55,10 +55,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 					  <ul class="nav navbar-nav">
-						<li><a href="index.html">主页</a></li>
-						<li><a href="services.html">服务</a></li>
-						<li><a href="typo.html">我的购物车</a></li>
-						<li class="active"><a href="menu.html">菜单</a></li>
+						<li><a href="Sign.jsp">登录</a></li>
+						<li class="active"><a href="Menu.jsp">菜单</a></li>
+						<li><a href="shopCart.jsp">购物车</a></li>
+						<li><a href="MyOrder.jsp">订单</a></li>
 						<li><a href="contact.html">联系我们</a></li>
 					  </ul>
 					</div><!-- /.navbar-collapse -->
@@ -77,14 +77,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--footer-->
 	<div class="footer-bottom">
 		<div class="container">		
-			<p>Copyright &copy; 2015.Company name All rights reserved.</p>					
+			<p>Copyright &copy; 2017.Lengendary All rights reserved.</p>					
 		</div>
 	</div>
 <!-- //menu -->
 <!--footer-->
 	<div class="footer-bottom">
 		<div class="container">		
-			<p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>					
+			<p>Copyright &copy; 2017.Lengendary All rights reserved.</p>					
 		</div>
 	</div>
 <!--//footer-->	

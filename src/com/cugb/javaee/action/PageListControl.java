@@ -75,7 +75,7 @@ public class PageListControl extends HttpServlet {
 		request.setAttribute("ProductList", pagemodel.getList());
 		request.setAttribute("pageModel", pagemodel);
 		RequestDispatcher rd = request
-				.getRequestDispatcher("index.jsp?currentPageNum=" + currentPageNum + "&totalPages=" + pagemodel.getTotalPages());
+				.getRequestDispatcher("Menu.jsp?currentPageNum=" + currentPageNum + "&totalPages=" + pagemodel.getTotalPages());
 		rd.forward(request, response);
 
 	}

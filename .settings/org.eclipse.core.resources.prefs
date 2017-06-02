@@ -1,5 +1,11 @@
 eclipse.preferences.version=1
+encoding//WebRoot/ConfirmOrder.jsp=UTF-8
 encoding//WebRoot/index.jsp=UTF-8
+encoding//WebRoot/shopCart.jsp=UTF-8
+encoding//src/com/cugb/javaee/action/AddItems.java=UTF-8
+encoding//src/com/cugb/javaee/action/UserLogIn.java=UTF-8
+encoding//src/com/cugb/javaee/action/UserSessionAttributeListener.java=UTF-8
+encoding//src/com/cugb/javaee/action/UserSignUp.java=UTF-8
 encoding//src/com/cugb/javaee/dao/BaseDAO.java=UTF-8
 encoding//src/com/cugb/javaee/utils/JDBCUtils.java=UTF-8
 encoding//src/dbcpconfig.properties=UTF-8

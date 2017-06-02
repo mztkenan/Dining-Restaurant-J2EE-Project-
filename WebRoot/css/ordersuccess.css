@@ -1,0 +1,17 @@
+/* CSS Document */
+
+*{padding 0px; margin:0px; position:relative;}
+#content{ width:960px;height:600px; margin:0px auto; font-size:12px; font-family:"宋体", Arial, Helvetica, sans-serif; color:#404040; }
+#content a{ text-decoration:none;}
+#body{ padding:15px 0px; text-align:left;}
+#shopbar{ height:27px; background:url(../images/bg_cart_title.gif) no-repeat 0px -80px; margin-bottom:15px;}
+#shopbar a{display:inline-block; height:27px; color:#666; font-size:14px; position:absolute;left:62px; top:6px}
+#shopbar a:hover{ color:red;}
+
+#details{ border:2px solid #dfc9b2; padding:15px 20px; }
+#top{ line-height:65px; padding-left:130px;}
+#okimg{ display:inline-block; widows:35px; height:65px; background:red; position:absolute; left:80px; top:10px;}
+#haospan{ font-size:15px; font-weight:bold;}
+#bottom{ padding-left:80px; line-height:50px; border-top:1px solid #dfc9b2; margin-top:40px;}
+
+

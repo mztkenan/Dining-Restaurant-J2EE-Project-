@@ -1,0 +1,47 @@
+*{ padding:0px; margin:0px; position:relative;}
+#content{width:960px; margin:0px auto;  }
+#shangguang{ height:80px; background:url(../images/guanggao.jpg) no-repeat; margin:20px 0px;}
+#zhongchanpin{  height:314px;  margin:10px auto 10px auto; }
+#xiaguang{  height:80px; background:url(../images/zhongguangtu.jpg) no-repeat; margin:20px 0px;}
+
+#daohang{ height:26px;  margin-bottom:10px; border-bottom:2px solid #999;}
+#chanpin{ height:276px;  }
+
+#zuolie{width:206px; height:274px; background:url(../images/zuotu3.jpg) no-repeat; border:1px solid #ccc; overflow:hidden;}
+#zhonglie{ width:492px; height:276px; position:absolute; left:219px; top:0px; text-align:center;}
+#youlie{ width:240px; height:276px; position:absolute; left:720px; top:0px;}
+
+#tubiao{ width:112px; height:20px; background:url(../images/common2.gif) no-repeat 0px -60px;}
+#lianjie{ position:absolute; right:10px; top:-1px;}
+
+#content a{ text-decoration:none; font-size:12px; font-weight:100px; color:#666;}
+#lianjie span{ margin:0px 6px; }
+#lianjie a:hover{ color:red;}
+
+#zuolie img{ border:none;}
+#zuolie a.img{ position:absolute; left:0px; top:0px; display:none;}
+
+#zuolie span{  width:40px; height:9px; position:absolute; left:160px; top:10px;}
+#zuolie span a{ display:inline-block; width:9px; height:9px; background:url(../images/common2.gif) no-repeat -240px -319px; margin-right:4px;}
+#zuolie span a.dangqian{ background-position:-249px -319px;}
+#zuolie span a:hover{ background-position:-249px -319px;}
+
+#zhonglie ul{ height:208px; list-style-type:none;}
+#zhonglie ul li{ float:left; width:164px;}
+#zhonglie ul li img{ border:none;}
+#zhonglie ul li p{ margin:6px 0px;}
+#zhonglie ul li p a{ color:#666;}
+#zhonglie ul li p a:hover{ color:red; text-decoration:underline;} 
+#zhonglie ul li p span{ color:red; font-size:14px; font-weight:bold; margin:0px 6px;}
+#zhonglie ul li p span.lowprice{ color:#666; text-decoration:line-through;}
+
+#youshang{ height:115px; background:url(../images/common2.gif) no-repeat 0px -394px;}
+#youzhong{ height:73px; background:url(../images/youzhongtu.jpg) no-repeat;margin:10px 0px;}
+#youxia{ height:68px; background:url(../images/common2.gif) no-repeat 0px -509px;}
+#youxia{ border:none;}
+#youxia a{ display:inline-block; width:70px; height:28px; overflow:hidden; margin:3px 5px;}
+#youshang div{ position:absolute; left:3px; top:35px;}
+#youshang div a{ display:inline-block; width:72px; height:72px; border:1px solid #ccd; margin:0px 2px;}
+#youshang div a:hover{ border-color:#F90;}
+#youshang div a span{ display:inline-block; width:53px; height:14px; background:url(../images/common2.gif) no-repeat -258px -318px; text-align:center; padding-top:2px; color:white; position:absolute;  right:0px; bottom:0px;}
+

@@ -19,8 +19,9 @@ public class UserSignUp extends HttpServlet {
 		String userName = request.getParameter("userName");
 		String passWord = request.getParameter("passWord");
 		String passWord2 = request.getParameter("passWord2");
+		IUserDao iUserDao = (IUserDao) DaoFactory.newInstance("IUserDao");
 		//用户注册
-		if(true){
+		if(iUserDao.findUsername(userName)){
 			//判断用户名是否合法
 			JOptionPane.showMessageDialog(null, "用户名不合法或者已经被注册", "注意", JOptionPane.ERROR_MESSAGE);   
 		}
@@ -30,12 +31,11 @@ public class UserSignUp extends HttpServlet {
 		}
 		else{
 			//插入用户数据，对话框显示成功消息
-			IUserDao iUserDao = (IUserDao) DaoFactory.newInstance("IUserDao");
 			User user = new User("0",userName,passWord,1);
-			user.setUserId(Integer.toString(iUserDao.countRows()));
+			user.setUserId(Integer.toString(iUserDao.countRows()+1));
 			iUserDao.insertUser(user);
 			//跳转欢迎界面
-			String url = response.encodeRedirectURL(request.getContextPath() + "/index.jsp");  
+			String url = response.encodeRedirectURL(request.getContextPath() + "/Menu.jsp");  
 	        response.sendRedirect(url);  
 		}
 	}

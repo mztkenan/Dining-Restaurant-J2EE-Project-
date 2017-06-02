@@ -14,12 +14,12 @@ public class UserDaoImplTest {
 	User user = new User();
 	@Before
 	public void setUp() throws Exception {
-		user.setUserId("3");
+		user.setUserId("4");
 		user.setUsername("1");
 		user.setPassword("1");
 		user.setUserType(1);
 	}
-/*
+
 	@Test
 	public void testFindUsers() {
 		iUserDao.findUsers();
@@ -31,7 +31,7 @@ public class UserDaoImplTest {
 		iUserDao.insertUser(user);
 		//fail("Not yet implemented");
 	}
-*/
+
 	@Test
 	public void testFindUser() {
 		System.out.println(iUserDao.findUser(user));

@@ -19,6 +19,7 @@ import com.cugb.javaee.bean.OrderInfomation;
 import com.cugb.javaee.bean.Product;
 import com.cugb.javaee.bean.User;
 import com.cugb.javaee.dao.IOrderInfomationDao;
+import com.cugb.javaee.dao.IProductDao;
 import com.cugb.javaee.dao.IUserDao;
 import com.cugb.javaee.utils.DaoFactory;
 
@@ -35,20 +36,26 @@ public class AddItems extends HttpServlet {
 		String pnumber = request.getParameter("PNumber");
 		//形成购物车变量
 		CartItem cartItem=new CartItem();
-		cartItem.getDish().setProductId("PID");
+		IProductDao iProductDao = (IProductDao) DaoFactory.newInstance("IProductDao");
+		Product tmpProduct = iProductDao.findProduct(productId);
+		cartItem.setDish(tmpProduct);
 		cartItem.setQuantity(Integer.parseInt(pnumber));
 		//把购物车变量放进session，用arraylist形式来组织
 		HttpSession session = request.getSession(false);
-		if(session == null){
-			ArrayList<CartItem> cartItemArray=new ArrayList<CartItem>();
-			cartItemArray.add(cartItem);
-			session.setAttribute("carItemArray", cartItemArray);
+		ArrayList<CartItem> cartItemArray=(ArrayList<CartItem>) session.getAttribute("carItemArray");
+		if(cartItemArray == null){
+			ArrayList<CartItem> tmpcartItemArray=new ArrayList<CartItem>();
+			tmpcartItemArray.add(cartItem);
+			session.setAttribute("carItemArray", tmpcartItemArray);
 		}else{
-			ArrayList<CartItem> cartItemArray=(ArrayList<CartItem>) session.getAttribute("carItemArray");
 			cartItemArray.add(cartItem);
 			//覆盖旧变量
 			session.setAttribute("carItemArray", cartItemArray);
 		}
+		
+		String url = response.encodeRedirectURL(request  
+                .getContextPath() + "/Menu.jsp");  
+        response.sendRedirect(url);  
 
 	}
 

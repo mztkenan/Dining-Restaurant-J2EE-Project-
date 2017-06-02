@@ -1,0 +1,20 @@
+/* CSS Document */
+*{padding:0px; margin: 0px; position:relative; }
+#content {margin:0px auto; width:960px; height:388px; background:no-repeat url(../images/denglu2.bmp);}
+#rightcontent{width:470px; height:250px; position:absolute ; left:450px; top:69px; background:white;}
+#dangdangimg{width:90px; height:30px; position:absolute ; left:50px; top:30px; background:url(../images/denglu3.png) -146px -45px;}
+#notuser{  position:absolute ; left:250px; top:35px; color:#999;}
+#button {  position:absolute ; left:375px; top:33px;width:70px;height:20px }
+
+#username{position:absolute ; left:80px; top:80px;}
+#namehelpspan{position:absolute ; left:130px; top:105px; font-size:12px;color:#CCC; display:none;}
+#namewarnspan{position:absolute ; left:120px; top:105px; font-size:12px;color:#F00;display:none;}
+
+
+#password{ position:absolute ; left:80px; top:130px; }
+#passhelpspan{position:absolute ; left:130px; top:155px;font-size:12px;color:#CCC;display:none;}
+#passwarnspan{position:absolute ; left:130px; top:155px;font-size:12px; color:#F00;display:none;}
+
+#img{ position:absolute; left:130px; top:180px;}
+
+.biaoqian{ display:inline-block; width:60px;}

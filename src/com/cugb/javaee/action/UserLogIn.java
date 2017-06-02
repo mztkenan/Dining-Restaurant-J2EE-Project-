@@ -39,7 +39,7 @@ public class UserLogIn extends HttpServlet {
             session.setAttribute("user", user);
             // 重定向到首页，URL重写方式  
             String url = response.encodeRedirectURL(request  
-                    .getContextPath() + "/index.jsp");  
+                    .getContextPath() + "/Menu.jsp");  
             response.sendRedirect(url);  
             return;  
 	    }else{
@@ -53,7 +53,9 @@ public class UserLogIn extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		
+		//super.doPost(req, resp);
+		doGet(req,resp);
 	}
 
 }

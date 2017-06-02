@@ -12,7 +12,7 @@
  
   <servlet-mapping>
     <servlet-name>servlet1</servlet-name>
-    <url-pattern>/_do</url-pattern>
+    <url-pattern>/UserLogIn</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -24,6 +24,27 @@
     <servlet-name>servlet2</servlet-name>
     <url-pattern>/_do2</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>servlet3</servlet-name>
+    <servlet-class>com.cugb.javaee.action.UserSignUp</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>servlet3</servlet-name>
+    <url-pattern>/UserSignUp</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>servlet4</servlet-name>
+    <servlet-class>com.cugb.javaee.action.AddItems</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>servlet4</servlet-name>
+    <url-pattern>/AddItems</url-pattern>
+  </servlet-mapping>
+  
 	<listener>
 		<listener-class>com.cugb.javaee.action.UserSessionListener</listener-class>
 	</listener>
