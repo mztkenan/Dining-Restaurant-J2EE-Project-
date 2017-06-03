@@ -13,8 +13,10 @@
 <!-- //js -->
 
 </head>
-
-<body>
+            <% ArrayList<CartItem> list= (ArrayList<CartItem> )session.getAttribute("carItemArray");
+            float sum = 0;
+            %>
+<body >
 
 
 <div id="content">
@@ -27,26 +29,44 @@
                 <li class="operate">操作</li>
             </ul> 
             <div id="goodlist">
-            <% ArrayList<CartItem> list= (ArrayList<CartItem> )session.getAttribute("carItemArray");
-            if(list!=null)
+<%
+            if(list!=null){
+            	int row = list.size();
             	for(int i=0 ; i< list.size() ; i++){
             		CartItem tmp = list.get(i);
             		Product pro=tmp.getDish();
             		int qty=tmp.getQuantity();
+            		sum = sum + pro.getProductPrice();
             		System.out.println(pro.getProductImage());
             		System.out.println(pro.getProductId());
-            	
             %>
             
-             <div class="goodinfo" id="gooddiv<%=i%>>" >
-             <span class="mingcheng"><a href='#' target="_blank"><div style="width:56px; height:56px; background-color:#99CCFF;"><img style="width:100%; height:100%;" src="<%=pro.getProductImage()%>"/></div></a><p><a href='#' target="_blank"><%=pro.getProductName()%></a></p></span><span class="dijia"><%=pro.getProductPrice() %></span><span class="shuliang"><input type="text" id="maishuliang<%=i%>>" value="1" disabled="disabled"/><a href="#"  onclick="jia(<%=i%>);" class="tiaoshu" id="xiangshang"></a><a href="#" onclick="jian(<%=i%>)" class="tiaoshu" id="xiangxia"></a></span><span class="caozuo"><a href="#" onclick="sahngchu(<%=i%>);">删除</a></span>
+             <div class="goodinfo" id="gooddiv<%=i+1%>" >
+             	<span class="mingcheng">
+             		<a href='#' target="_blank">
+             			<div style="width:56px; height:56px; background-color:#99CCFF;">
+             				<img style="width:100%; height:100%;" src="<%=pro.getProductImage()%>"/>
+             			</div>
+             		</a>
+             		<p><a href='#' target="_blank"><%=pro.getProductName()%></a></p>
+             	</span>
+             	<span class="dijia" id="price<%=i+1%>"><%=pro.getProductPrice() %></span>
+             	<span class="shuliang">
+             		<input type="text" id="maishuliang<%=i+1%>" value="1" disabled="disabled"/>
+             		<a href="#"  onclick="jia(<%=i+1%>,<%=row%>);" class="tiaoshu" id="xiangshang"></a>
+             		<a href="#" onclick="jian(<%=i+1%>,<%=row%>)" class="tiaoshu" id="xiangxia"></a>
+             	</span>
+             	<span class="caozuo">
+             		<a href="#" onclick="sahngchu(<%=i+1%>,<%=row%>);">删除</a>
+             	</span> 
 			</div>	
 			<%
             	}
-			%>		
+            }
+			%>	
 			</div>
 			<div id="jiesuan">
-        	    <p>商品金额总计:￥&nbsp;</p><br/><input type="text" id="qianshu" value="" />
+        	    <p>商品金额总计:￥&nbsp;</p><br/><input type="text" id="qianshu" value="<%=sum %>" />
                 <p>
             	    <a href="Menu.jsp" id="jixugouwu" target="_blank">&nbsp;&nbsp;&nbsp;继续购物</a>
                     <a href="OrderInfo.jsp" id="qujiesuan" target="_self"></a>

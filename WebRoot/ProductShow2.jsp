@@ -204,28 +204,7 @@ li.currentState,.currentState a,.currentState a:hover{
 
 		</div>
 	</div>
-<ul class="pagination" title="分页列表">
-  <li class="totalAnnal">总记录数：<i>3</i></li>
-  <li class="totalPage">总页数：<i>3</i></li>
-  <li class="currentPage">当前页：<b>3</b></li>
-  <li class="firstPage currentState"><a href="javascript:;" title="首页">首页</a></li>
-  <li class="previousPage currentState"><a href="javascript:;" title="前一页">前一页</a></li>
-  <li>
-    <ol>
-      <li><a title="转到第1页" href="javascript:;">1</a></li>
-      <li><a title="转到第2页" href="javascript:;">2</a></li>
-      <li class="currentState" title="当前页"><a href="javascript:;">3</a></li>
-      <li><a title="转到第4页" href="javascript:;">4</a></li>
-      <li><a title="转到第5页" href="javascript:;">5</a></li>
-      <li><a title="转到第6页" href="javascript:;">6</a></li>
-      <li><a title="转到第7页" href="javascript:;">7</a></li>
-      <li><a title="转到第8页" href="javascript:;">8</a></li>
-      <li><a title="转到第9页" href="javascript:;">9</a></li>
-    </ol>
-  </li>
-  <li class="nextPage"><a href="javascript:;" title="后一页">后一页</a></li>
-  <li class="lastPage"><a href="javascript:;" title="尾页">尾页</a></i>
-</ul>
+
 
 </body>
 </html>

@@ -1,36 +1,185 @@
-*{padding:0px;margin:0px;position:relative; text-decoration:none;}
-#content{width:960px;height:600px;margin:0px auto;}
-#body{ text-align:left; padding:15px 0px;}
-#body a{ color:blue;}
-#body a:hover{ color:red;}
-#tu{  height:27px; background:url(../images/bg_cart_pic.gif) no-repeat;margin-bottom:15px;margin-top:0px;}
-#body ul{ display:block; width:960px; height:29px; border-top:2px solid #dFc9B2; border-bottom:1px solid #dFc9B2; overflow:hidden; list-style-type:none; color:#8a7152;background:#D7D7D7}
-#body ul li{ float:left; line-height:28px; text-align:center;}
-#body ul li.name{ width:395px;}
-#body ul li.lowprice{ width:170px;}
-#body ul li.sheng{ width:141px; /*background:url(../images/icon_cart.gif) no-repeat 87px -80px;*/}
-#body ul li.num{ width:170px;}
-#body ul li.operate{ width:170px;}
-#goodlist{ border-bottom:1px solid #dFc9B2;}
+* {
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	text-decoration: none;
+}
 
-#goodlist div.goodinfo{ height:74px; border-bottom:1px solid #dcdcdc;position:relative;}
-#goodlist div.goodinfo span{ display:inline-block; text-align:center; height:44px; padding-top:30px; border-right:1px solid #dcdcdc; overflow:hidden;}
-#goodlist div.goodinfo span.mingcheng{ width:374px; height:56px; padding:5px 0px; padding-left:20px;   text-align:left;}
-#goodlist div.goodinfo span.mingcheng p{ position:absolute; left:86px; top:20px;}
+#content {
+	width: 960px;
+	height: 600px;
+	margin: 0px auto;
+}
 
-#goodlist div.goodinfo span.dijia{width:170px; color:red;}
-#goodlist div.goodinfo span.jiesheng{width:170px;  }
- #goodlist div.goodinfo span.shuliang{ width:170px;}
-#goodlist div.goodinfo span.caozuo{border:none;width:170px;position:absolute;right:0px;top:0px;}
- #goodlist div.goodinfo span img{ border:1px solid #dcdcdc;}
-#goodlist div.goodinfo span input{ width:30px; height:20px; color:red; border:1px solid #dcdcdc; background:white; text-align:center;}
-#goodlist div.goodinfo span a.tiaoshu{ display:inline-block; width:16px; height:8px; border:1px solid #dcdcdc; position:absolute; left:64px; background:url(../images/icon_cart.gif) no-repeat 5px -58px;}
-#goodlist div.goodinfo span #xiangshang{ top:30px;}
-#goodlist div.goodinfo span #xiangxia{ top:42px; background-position:5px -67px;}
-#jiesuan{width:200px;height:42px;position:absolute;right:0px;top:250px;}
-#jiesuan input{width:50px;position:absolute;right:20px;top:0px;border:none; }
-#jiesuan p qujiesuan{position:absolute;left:0px;top:250px; font-size:50px; } 
-#jixugouwu{
+#body {
+	text-align: left;
+	padding: 15px 0px;
+}
+
+#body a {
+	color: blue;
+}
+
+#body a:hover {
+	color: red;
+}
+
+#tu {
+	height: 27px;
+	background: url(../images/bg_cart_pic.gif) no-repeat;
+	margin-bottom: 15px;
+	margin-top: 0px;
+}
+
+#body ul {
+	display: block;
+	width: 960px;
+	height: 29px;
+	border-top: 2px solid #dFc9B2;
+	border-bottom: 1px solid #dFc9B2;
+	overflow: hidden;
+	list-style-type: none;
+	color: #8a7152;
+	background: #D7D7D7
+}
+
+#body ul li {
+	float: left;
+	line-height: 28px;
+	text-align: center;
+}
+
+#body ul li.name {
+	width: 395px;
+}
+
+#body ul li.lowprice {
+	width: 170px;
+}
+
+#body ul li.sheng {
+	width: 141px;
+	/*background:url(../images/icon_cart.gif) no-repeat 87px -80px;*/
+}
+
+#body ul li.num {
+	width: 170px;
+}
+
+#body ul li.operate {
+	width: 170px;
+}
+
+#goodlist {
+	border-bottom: 1px solid #dFc9B2;
+}
+
+#goodlist div.goodinfo {
+	height: 74px;
+	border-bottom: 1px solid #dcdcdc;
+	position: relative;
+}
+
+#goodlist div.goodinfo span {
+	display: inline-block;
+	text-align: center;
+	height: 44px;
+	padding-top: 30px;
+	border-right: 1px solid #dcdcdc;
+	overflow: hidden;
+}
+
+#goodlist div.goodinfo span.mingcheng {
+	width: 374px;
+	height: 56px;
+	padding: 5px 0px;
+	padding-left: 20px;
+	text-align: left;
+}
+
+#goodlist div.goodinfo span.mingcheng p {
+	position: absolute;
+	left: 86px;
+	top: 20px;
+}
+
+#goodlist div.goodinfo span.dijia {
+	width: 170px;
+	color: red;
+}
+
+#goodlist div.goodinfo span.jiesheng {
+	width: 170px;
+}
+
+#goodlist div.goodinfo span.shuliang {
+	width: 170px;
+}
+
+#goodlist div.goodinfo span.caozuo {
+	border: none;
+	width: 170px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+#goodlist div.goodinfo span img {
+	border: 1px solid #dcdcdc;
+}
+
+#goodlist div.goodinfo span input {
+	width: 30px;
+	height: 20px;
+	color: red;
+	border: 1px solid #dcdcdc;
+	background: white;
+	text-align: center;
+}
+
+#goodlist div.goodinfo span a.tiaoshu {
+	display: inline-block;
+	width: 16px;
+	height: 8px;
+	border: 1px solid #dcdcdc;
+	position: absolute;
+	left: 64px;
+	background: url(../images/icon_cart.gif) no-repeat 5px -58px;
+}
+
+#goodlist div.goodinfo span #xiangshang {
+	top: 30px;
+}
+
+#goodlist div.goodinfo span #xiangxia {
+	top: 42px;
+	background-position: 5px -67px;
+}
+
+#jiesuan {
+	width: 200px;
+	height: 42px;
+	position: relative;
+	right: 0px;
+	top: 250px;
+}
+
+#jiesuan input {
+	width: 50px;
+	position: absolute;
+	right: 20px;
+	top: 0px;
+	border: none;
+}
+
+#jiesuan p qujiesuan {
+	position: absolute;
+	left: 0px;
+	top: 250px;
+	font-size: 50px;
+}
+
+#jixugouwu {
 	display: inline-block;
 	height: 19px;
 	width: 90px;
@@ -43,4 +192,13 @@
 	background: url(../images/bg_cart_pic.gif) no-repeat 0px -120px;
 	overflow: hidden;
 }
-#qujiesuan{  display:inline-block; height:35px; width:142px;padding-top:5px; padding-right:10px;  background:url(../images/bg_cart_pic.gif) no-repeat 0px -80px; overflow:hidden;}
+
+#qujiesuan {
+	display: inline-block;
+	height: 35px;
+	width: 142px;
+	padding-top: 5px;
+	padding-right: 10px;
+	background: url(../images/bg_cart_pic.gif) no-repeat 0px -80px;
+	overflow: hidden;
+}
