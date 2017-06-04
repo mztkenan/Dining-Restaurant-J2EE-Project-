@@ -19,7 +19,12 @@ public class UserLogIn extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doPost(request, response);
+		
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String loginname = request.getParameter("loginname");  
 		String loginpassword = request.getParameter("loginpassword");
 		//此处需要访问数据库，判断用户名和密码是否正确	
@@ -48,14 +53,6 @@ public class UserLogIn extends HttpServlet {
 	         PrintWriter out = response.getWriter();  
 	         out.print("用户名或密码错误");  
 	    }
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		//super.doPost(req, resp);
-		doGet(req,resp);
 	}
 
 }

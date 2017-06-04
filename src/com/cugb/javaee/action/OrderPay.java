@@ -23,23 +23,18 @@ import com.cugb.javaee.utils.DaoFactory;
 public class OrderPay extends HttpServlet{
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-//		public OrderInfomation(String orderId, String userId, String orderAddress,
-//				String orderPhone, Timestamp orderDate, float orderPrice,String orderState, 
-//				String orderRemark){
-//			this.orderId = orderId;
-//			this.userId = userId;
-//			this.orderAddress = orderAddress;
-//			this.orderPhone = orderPhone;
-//			this.orderDate = orderDate;      
-//			this.orderPrice = orderPrice;
-//			this.orderState = orderState;
-//			this.orderRemark = orderRemark;
-//		}
+		doPost(request, response);
+
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		String orderAddress = request.getParameter("orderAddress");
 		String orderPhone = request.getParameter("orderPhone");
+		String orderText = request.getParameter("orderText");
 		Timestamp dateTime = new Timestamp(System.currentTimeMillis()); 
 		HttpSession session = request.getSession(false); 
 		User user = (User) session.getAttribute("user");
@@ -51,20 +46,13 @@ public class OrderPay extends HttpServlet{
 			Product product = iProductDao.findProduct(cartItemArray.get(i).getDish().getProductId());
 			Float prise = (Float) (cartItemArray.get(i).getQuantity()*product.getProductPrice());
 			String OrderId=iOrderInfomationDao.countOrderInfomation();
-			OrderInfomation orderInfomation = new OrderInfomation(OrderId,user.getUserId(),orderAddress,orderPhone,dateTime,prise,"Unpay","");
+			OrderInfomation orderInfomation = new OrderInfomation(OrderId,user.getUserId(),orderAddress,orderPhone,dateTime,prise,"Unpay",orderText);
 			iOrderInfomationDao.insertOrderInfomation(orderInfomation);
 			iOrderInfomationDao.updateOrderInfomation(user.getUserId(), OrderId, "Unpay", "Paied");
 			//减少库存
 			
 			iProductDao.updateProductNumber(cartItemArray.get(i).getDish().getProductId(), cartItemArray.get(i).getQuantity());
 		}
-
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
 	}
 
 }

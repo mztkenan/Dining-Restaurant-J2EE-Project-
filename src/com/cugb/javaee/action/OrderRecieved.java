@@ -15,20 +15,19 @@ import com.cugb.javaee.utils.DaoFactory;
 
 public class OrderRecieved extends HttpServlet {
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
 		
+		
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String OrderId = request.getParameter("OID");
 		HttpSession session = request.getSession(false); 
 		User user = (User) session.getAttribute("user");
 		IOrderInfomationDao iOrderInfomationDao = (IOrderInfomationDao) DaoFactory.newInstance("IOrderInfomationDao");
 		iOrderInfomationDao.updateOrderInfomation(user.getUserId(), OrderId, "Paied", "Recieved");
-		
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
 	}
 
 }

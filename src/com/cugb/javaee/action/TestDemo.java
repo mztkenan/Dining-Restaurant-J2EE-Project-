@@ -14,7 +14,11 @@ public class TestDemo extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doPost(request, response);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");  
         response.setHeader("Content-type", "text/html;charset=UTF-8");  
 		PrintWriter out = response.getWriter();  
@@ -23,12 +27,6 @@ public class TestDemo extends HttpServlet {
         		JOptionPane.ERROR_MESSAGE);   
         String url = response.encodeRedirectURL(request.getContextPath() + "/index.jsp");  
         response.sendRedirect(url);  
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
 	}
 
 	public static void main(String[] args) {

@@ -14,4 +14,5 @@ public interface IProductDao {
 	public ArrayList<Product> findDishesBySize(String strsql, Object[] params);
 	public Product findProduct(String productid); 
 	public boolean updateProductNumber(String productid,int number);
+	public int countRows();
 }
