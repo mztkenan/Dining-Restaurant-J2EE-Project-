@@ -10,94 +10,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" mrc="text/html; charset=gb2312" />
-<title>CSS实现的一个漂亮分页按钮样式</title>
-<style type="text/css">
-.pagination{
- overflow:hidden;
- margin:0;
- padding:10px 10px 6px 10px;
- border-top:1px solid #f60;
- _zoom:1;
-}
-.pagination *{
- display:inline;
- float:left;
- margin:0;
- padding:0;
- font-size:12px;
-}
-.pagination i{
- float:none;
- padding-right:1px;
-}
-.currentPage b{
- float:none;
- color:#f00;
-}
-.pagination li{
- list-style:none;
- margin:0 5px;
-}
-.pagination li li{
- position:relative;
- margin:-2px 0 0;
- font-family: Arial, Helvetica, sans-serif
-}
-.firstPage a,.previousPage a,.nextPage a,.lastPage a{
- overflow:hidden;
- height:0;
- text-indent:-9999em;
- border-top:8px solid #fff;
- border-bottom:8px solid #fff;
-}
-.pagination li li a{
- margin:0 1px;
- padding:0 4px;
- border:3px double #fff;
- +border-color:#eee;
- background:#eee;
- color:#06f;
- text-decoration:none;
-}
-.pagination li li a:hover{
- background:#f60;
- border-color:#fff;
- +border-color:#f60;
- color:#fff;
-}
-li.firstPage{
- margin-left:40px;
- border-left:3px solid #06f;
-}
-.firstPage a,.previousPage a{
- border-right:12px solid #06f;
-}
-.firstPage a:hover,.previousPage a:hover{
- border-right-color: #f60;
-}
-.nextPage a,.lastPage a{
- border-left:12px solid #06f;
-}
-.nextPage a:hover,.lastPage a:hover{
- border-left-color:#f60;
-}
-li.lastPage{
- border-right:3px solid #06f;
-}
-li li.currentState a{
- position:relative;
- margin:-1px 3px;
- padding:1px 4px;
- border:3px double #fff;
- +border-color:#f60;
- background:#f60;
- color:#fff;
-}
-li.currentState,.currentState a,.currentState a:hover{
- border-color:#fff #ccc;
- cursor:default;
-}
-</style>
+<title>分页</title>
+<link href="css/ListView.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
 <%
@@ -146,7 +60,7 @@ li.currentState,.currentState a,.currentState a:hover{
 					<h4><a href="#"><%=product1.getProductName()%></a></h4>
 					<p><%=product1.getProductDescription()%></p>
 					<div class="menu-rate">
-						<h5>$<%=product1.getProductPrice()%></h5>
+						<h5>￥<%=product1.getProductPrice()%></h5>
 						<h5><a href="AddItems?PID=<%=product1.getProductId()%>&PNumber=1">购买</a></h5>
 					</div>
 				</div>
@@ -182,29 +96,32 @@ li.currentState,.currentState a,.currentState a:hover{
 		<table cellSpacing=2 cellPadding=1 width="100%" align=center border=0>
 		<tbody>
 		<tr>
-			<td>
+			
+			<ul class="pagination" title="分页列表">
 				<div align="left">
-					<font color="#000000">&nbsp;共&nbsp${requestScope.pageModel.totalPages}&nbsp页</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<font color="#000000">当前第</font>&nbsp
-					<font color="#000000">${requestScope.pageModel.currentPage}</font>&nbsp
-					<font color="#000000">页</font>
+					  <li class="totalPage">总页数：<i>${requestScope.pageModel.totalPages}</i></li>
+					<li class="currentPage">当前页：<b>${requestScope.pageModel.currentPage}</b></li>
 				</div>
-			</td>
-			<td>
+
 				<div align="right">
 					<a name="btnTopPage"  id="btnTopPage" href="PageListControl?actiontype=pagelist&currentPageNum=1" title="首页">|&lt;&lt; </a>&nbsp;
 					<a name="btnPreviousPage"  id="btnPreviousPage" href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.prevPageNO}" title="上页"> &lt;  </a>&nbsp;
 					<a name="btnNextPage"  id="btnNextPage" href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.nextPageNO}" title="下页">  &gt; </a>&nbsp;
 					<a name="btnBottomPage"  id="btnBottomPage" href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.bottomPageNO}" title="尾页"> &gt;&gt;|</a>
 				</div>
-			</td>
+			</ul>
 		</tr>
 		</tbody>
 		</table>
 
 		</div>
 	</div>
+<ul class="pagination" title="分页列表">
+  <li class="firstPage currentState"><a href="javascript:;" title="首页">首页</a></li>
+  <li class="previousPage currentState"><a href="javascript:;" title="前一页">前一页</a></li>
 
-
+  <li class="nextPage"><a href="javascript:;" title="后一页">后一页</a></li>
+  <li class="lastPage"><a href="javascript:;" title="尾页">尾页</a></i>
+</ul>
 </body>
 </html>

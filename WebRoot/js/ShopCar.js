@@ -145,13 +145,17 @@ function quedingshanchu(index) {
 	// 发送请求
 	xmlHttp.send(null);
 }// JavaScript Document
-function sahngchu(index, rows) {
+function sahngchu(pid,index, rows) {
 	$("gooddiv" + index).style.display = "none";
 	$("maishuliang" + index).value = 0;
+	window.location.href="DeleteItem?deletePID="+pid;
 	jia(index,rows);
 	jian(index,rows);
 }
-function jia(index, rows) {
+function sahngchu2(uid,index) {
+	window.location.href="DeleteUser?deleteUID="+uid;
+}
+function jia(pid,index, rows) {
 	var sum = 0.0;
 	var i;
 	var k;
@@ -165,10 +169,11 @@ function jia(index, rows) {
 		b = parseFloat($("price" + i).innerHTML);
 		sum = sum + k * b;
 	}
-	$("qianshu").value = sum;
+	
+	window.location.href="AddOneItem?AddOnePID="+pid;
 }
 
-function jian(index,rows) {
+function jian(pid,index,rows) {
 	var i;
 	var k;
 	var b = 0;
@@ -185,5 +190,6 @@ function jian(index,rows) {
 		b = parseFloat($("price" + i).innerHTML);
 		sum = sum + k * b;
 	}
-	$("qianshu").value = sum;
+	
+	window.location.href="DeleteOneItem?DeleteOnePID="+pid;
 }

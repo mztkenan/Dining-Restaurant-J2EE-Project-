@@ -103,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="in-form Personal">
 												<h4>个 人 信 息</h4>
 												<form action="UserSignUp" method="get">
-													<input type="text" name="userName" class="textbox" value="Enter your name here..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your name here...';}">
+													<input type="text" name="userName" class="textbox" value="Enter your name here..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入用户名...';}">
 													<!--  <input type="text" class="textbox" value="Enter your email here..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
 													-->
 												
@@ -111,7 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												
 												    <input type="password" name="passWord" class="password" value="Enter your password..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
 												    <input type="password" name="passWord2" class="password" value="Enter your password..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-													<input type="submit" value="submit">
+													<input type="submit" value="提交">
 												</form>
 											</div>
 										</div>

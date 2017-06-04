@@ -36,7 +36,7 @@
             		CartItem tmp = list.get(i);
             		Product pro=tmp.getDish();
             		int qty=tmp.getQuantity();
-            		sum = sum + pro.getProductPrice();
+            		sum = sum + qty*pro.getProductPrice();
             		System.out.println(pro.getProductImage());
             		System.out.println(pro.getProductId());
             %>
@@ -52,12 +52,12 @@
              	</span>
              	<span class="dijia" id="price<%=i+1%>"><%=pro.getProductPrice() %></span>
              	<span class="shuliang">
-             		<input type="text" id="maishuliang<%=i+1%>" value="1" disabled="disabled"/>
-             		<a href="#"  onclick="jia(<%=i+1%>,<%=row%>);" class="tiaoshu" id="xiangshang"></a>
-             		<a href="#" onclick="jian(<%=i+1%>,<%=row%>)" class="tiaoshu" id="xiangxia"></a>
+             		<input type="text" id="maishuliang<%=i+1%>" value="<%=qty%>" disabled="disabled"/>
+             		<a href="#"  onclick="jia(<%=pro.getProductId()%>,<%=i+1%>,<%=row%>);" class="tiaoshu" id="xiangshang"></a>
+             		<a href="#" onclick="jian(<%=pro.getProductId()%>,<%=i+1%>,<%=row%>)" class="tiaoshu" id="xiangxia"></a>
              	</span>
              	<span class="caozuo">
-             		<a href="#" onclick="sahngchu(<%=i+1%>,<%=row%>);">删除</a>
+             		<a href="#" onclick="sahngchu(<%=pro.getProductId()%>,<%=i+1%>,<%=row%>);">删除</a>
              	</span> 
 			</div>	
 			<%
@@ -65,11 +65,12 @@
             }
 			%>	
 			</div>
+			<br>
 			<div id="jiesuan">
         	    <p>商品金额总计:￥&nbsp;</p><br/><input type="text" id="qianshu" value="<%=sum %>" />
                 <p>
-            	    <a href="Menu.jsp" id="jixugouwu" target="_blank">&nbsp;&nbsp;&nbsp;继续购物</a>
-                    <a href="OrderInfo.jsp" id="qujiesuan" target="_self"></a>
+            	    <a href="Menu.jsp"  id="jixugouwu" target="_parent">&nbsp;&nbsp;&nbsp;继续购物</a>
+                    <a href="ConfirmOrder.jsp" id="qujiesuan" target="_self"></a>
                 </p>
             </div>     
 </div>

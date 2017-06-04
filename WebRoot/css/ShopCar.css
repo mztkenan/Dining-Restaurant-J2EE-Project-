@@ -143,7 +143,6 @@
 	height: 8px;
 	border: 1px solid #dcdcdc;
 	position: absolute;
-	left: 64px;
 	background: url(../images/icon_cart.gif) no-repeat 5px -58px;
 }
 
@@ -159,9 +158,8 @@
 #jiesuan {
 	width: 200px;
 	height: 42px;
-	position: relative;
+	position: absolute;
 	right: 0px;
-	top: 250px;
 }
 
 #jiesuan input {
@@ -174,7 +172,6 @@
 
 #jiesuan p qujiesuan {
 	position: absolute;
-	left: 0px;
 	top: 250px;
 	font-size: 50px;
 }
@@ -184,7 +181,7 @@
 	height: 19px;
 	width: 90px;
 	position: absolute;
-	right: 206px;
+	right: 250px;
 	top: 9px;
 	font-size: 12px;
 	font-weight: normal;

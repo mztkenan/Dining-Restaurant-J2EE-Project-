@@ -69,13 +69,13 @@ create table user
 );
 
 alter table orderInfomation add constraint FK_Relationship_1 foreign key (userId)
-      references user (userId) on delete restrict on update restrict;
+      references user (userId) on delete CASCADE on update CASCADE;
 
 alter table orderItem add constraint FK_orderItem foreign key (productId)
-      references product (productId) on delete restrict on update restrict;
+      references product (productId) on delete CASCADE on update CASCADE;
 
 alter table orderItem add constraint FK_orderItem2 foreign key (orderId)
-      references orderInfomation (orderId) on delete restrict on update restrict;
+      references orderInfomation (orderId) on delete CASCADE on update CASCADE;
 
 
 

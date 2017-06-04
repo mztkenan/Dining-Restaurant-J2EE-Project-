@@ -2,6 +2,8 @@ package com.cugb.javaee.test;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,10 +24,11 @@ public class UserDaoImplTest {
 
 	@Test
 	public void testFindUsers() {
-		iUserDao.findUsers();
+		ArrayList<User> list = (ArrayList<User>) iUserDao.findUsers();
+		System.out.println(list);
 		//fail("Not yet implemented");
 	}
-
+/*
 	@Test
 	public void testInsertUser() {
 		iUserDao.insertUser(user);

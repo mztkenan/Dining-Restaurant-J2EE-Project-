@@ -18,6 +18,7 @@ public class UserDaoImpl implements IUserDao {
 		try {
 			String sql = "select * from user";
 			Connection conn = JDBCUtils.getConnection();
+			System.out.println(conn);
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
@@ -101,6 +102,7 @@ public class UserDaoImpl implements IUserDao {
 			Connection conn = JDBCUtils.getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, user.getUserId());
+			System.out.println(ps);
 			int rs = ps.executeUpdate();
 			JDBCUtils.free(rs, ps, conn);
 		} catch (SQLException e) {

@@ -35,12 +35,13 @@ a{ text-decoration:none;}
     border:1px solid #ccc; 
     padding:0px 5px;
     display:inline-block; 
-    width:90px; 
+    width:200px; 
     height:20px;
 }
 #dizhi {
-    width:350px;
+    width:200px;
 }
+
 .radioitem{ margin:8px 0px; padding-left:15px;}
 .radioinput{ position: absolute; left:0px; top:3px;}
 .radioinput1{ position: absolute; left:0px; top:0px;}

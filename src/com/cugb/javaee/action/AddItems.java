@@ -48,11 +48,21 @@ public class AddItems extends HttpServlet {
 			tmpcartItemArray.add(cartItem);
 			session.setAttribute("carItemArray", tmpcartItemArray);
 		}else{
-			cartItemArray.add(cartItem);
+			boolean finded = false;
+			for(int i= 0 ; i<cartItemArray.size() ; i++){
+				String tmpPID = cartItemArray.get(i).getDish().getProductId();
+				if(tmpPID.equals(cartItem.getDish().getProductId())){
+					finded = true;
+					cartItemArray.get(i).setQuantity(cartItemArray.get(i).getQuantity()+1);
+					break;
+				}
+			}
+			if(finded == false){
+				cartItemArray.add(cartItem);	
+			}
 			//覆盖旧变量
 			session.setAttribute("carItemArray", cartItemArray);
-		}
-		
+		}		
 		String url = response.encodeRedirectURL(request  
                 .getContextPath() + "/Menu.jsp");  
         response.sendRedirect(url);  
