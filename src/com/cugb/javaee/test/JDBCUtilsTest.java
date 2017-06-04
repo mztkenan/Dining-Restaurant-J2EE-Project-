@@ -21,7 +21,6 @@ public class JDBCUtilsTest {
 		Connection conn = null;
 		for(int i=0;i<4;i++){
 			conn = JDBCUtils.getConnection();
-			System.out.println(conn);
 			conn.close();
 		}
 //		assertNotNull(JDBCUtils.getConnection());

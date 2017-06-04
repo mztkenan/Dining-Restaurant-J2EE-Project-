@@ -1,86 +1,85 @@
-@CHARSET "UTF-8";
+@CHARSET "UTF-8" !important;
 .pagination{
- overflow:hidden;
- margin:0;
- padding:10px 10px 6px 10px;
- border-top:1px solid #f60;
- _zoom:1;
+ overflow:hidden !important;
+ margin:0 !important;
+ padding:10px 10px 6px 10px !important;
+ _zoom:1 !important;
 }
 .pagination *{
- display:inline;
- float:left;
- margin:0;
- padding:0;
- font-size:12px;
+ display:inline !important;
+ float:left !important;
+ margin:0 !important;
+ padding:0 !important;
+ font-size:12px !important;
 }
 .pagination i{
- float:none;
- padding-right:1px;
+ float:none !important;
+ padding-right:1px !important;
 }
 .currentPage b{
- float:none;
- color:#f00;
+ float:none !important;
+ color:#f00 !important;
 }
 .pagination li{
- list-style:none;
- margin:0 5px;
+ list-style:none !important;
+ margin:0 5px !important;
 }
 .pagination li li{
- position:relative;
- margin:-2px 0 0;
+ position:relative !important;
+ margin:-2px 0 0 !important;
  font-family: Arial, Helvetica, sans-serif
 }
 .firstPage a,.previousPage a,.nextPage a,.lastPage a{
- overflow:hidden;
- height:0;
- text-indent:-9999em;
- border-top:8px solid #fff;
- border-bottom:8px solid #fff;
+ overflow:hidden !important;
+ height:0 !important;
+ text-indent:-9999em !important;
+ border-top:8px solid #fff !important;
+ border-bottom:8px solid #fff !important;
 }
 .pagination li li a{
- margin:0 1px;
- padding:0 4px;
- border:3px double #fff;
- +border-color:#eee;
- background:#eee;
- color:#06f;
- text-decoration:none;
+ margin:0 1px !important;
+ padding:0 4px !important;
+ border:3px double #fff !important;
+ +border-color:#eee !important;
+ background:#eee !important;
+ color:#06f !important;
+ text-decoration:none !important;
 }
 .pagination li li a:hover{
- background:#f60;
- border-color:#fff;
- +border-color:#f60;
- color:#fff;
+ background:#f60 !important;
+ border-color:#fff !important;
+ +border-color:#f60 !important;
+ color:#fff !important;
 }
 li.firstPage{
- margin-left:40px;
- border-left:3px solid #06f;
+ margin-left:40px !important;
+ border-left:3px solid #06f !important;
 }
 .firstPage a,.previousPage a{
- border-right:12px solid #06f;
+ border-right:12px solid #06f !important;
 }
 .firstPage a:hover,.previousPage a:hover{
- border-right-color: #f60;
+ border-right-color: #f60 !important;
 }
 .nextPage a,.lastPage a{
- border-left:12px solid #06f;
+ border-left:12px solid #06f !important;
 }
 .nextPage a:hover,.lastPage a:hover{
- border-left-color:#f60;
+ border-left-color:#f60 !important;
 }
 li.lastPage{
- border-right:3px solid #06f;
+ border-right:3px solid #06f !important;
 }
 li li.currentState a{
- position:relative;
- margin:-1px 3px;
- padding:1px 4px;
- border:3px double #fff;
- +border-color:#f60;
- background:#f60;
- color:#fff;
+ position:relative !important;
+ margin:-1px 3px !important;
+ padding:1px 4px !important;
+ border:3px double #fff !important;
+ +border-color:#f60 !important;
+ background:#f60 !important;
+ color:#fff !important;
 }
 li.currentState,.currentState a,.currentState a:hover{
- border-color:#fff #ccc;
- cursor:default;
+ border-color:#fff #ccc !important;
+ cursor:default !important;
 }

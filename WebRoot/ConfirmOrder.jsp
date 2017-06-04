@@ -1,3 +1,8 @@
+<%@page import="com.cugb.javaee.bean.CartItem"%>
+<%@page import="javax.xml.transform.Templates"%>
+<%@page import="com.cugb.javaee.bean.Product"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -13,7 +18,7 @@
 	<div id="content">
 		<div id="body">
 			<div id="tu">
-				<a href="ShopCart.html">我的购物车</a>
+				<a href="ShopCart.jsp">我的购物车</a>
 			</div>
 			<div>请确认以下信息，然后提交订单</div>
 			<div id="info">
@@ -149,18 +154,36 @@
 				<div id="shangpinxixi" class="infoitem noborder">
 					<h3>商品清单&nbsp;&nbsp;</h3>
 					<p class="xinxi">
-						商家：点点订餐<span id="xiugaia">[<a href="shopCar.jsp"
+						商家：点点订餐<span id="xiugaia">[<a href="shopCart.jsp"
 							target="_self">返回修改购物车</a>]
 						</span>
 					</p>
 					<div id="liebiao">
 						<ul>
 							<li class="name">商品名称</li>
-							<li class="lowprice">当当价</li>
+							<li class="lowprice">价格</li>
 							<li class="num">数量</li>
 							<li class="jiner">金额</li>
 						</ul>
-						<span>此处ASP repeater</span>
+						<%
+						ArrayList<CartItem> list= (ArrayList<CartItem> )session.getAttribute("carItemArray");
+						double sum=0;
+						double itemTotalPrice=0.0;
+						double freight=0.0;
+						if(list!=null){
+							for(int i=0;i< list.size();i++){
+								CartItem tmp =list.get(i);
+								Product pro=tmp.getDish();
+								itemTotalPrice=pro.getProductPrice()*tmp.getQuantity();
+								sum+=itemTotalPrice;
+						%>
+                             <div>
+                    	        <span class="ming"><%=pro.getProductName()%></span><span class="jia">￥<%=pro.getProductPrice() %></span><span class="shu"><%=tmp.getQuantity()%></span><span class="qian">￥<%=itemTotalPrice%></span>
+                            </div>
+                            <% 
+							}
+						}
+						%>
 					</div>
 
 					<div id="fapiao">
@@ -181,13 +204,13 @@
                          -->
 						<div id="jinertongji">
 							<p>
-								商品金额总计：￥&nbsp;<span id="zongerspan">401.80</span>
+								商品金额总计：￥&nbsp;<span id="zongerspan"><%=sum%></span>
 							</p>
 							<p>
-								运费：￥&nbsp;<span id="yunfeispan">0.00</span>
+								运费：￥&nbsp;<span id="yunfeispan"><%=freight%></span>
 							</p>
 							<p>
-								您需支付：￥&nbsp;<span id="zhifuspan">401.80</span>
+								您需支付：￥&nbsp;<span id="zhifuspan"><%=sum+freight%></span>
 							</p>
 						</div>
 					</div>
@@ -200,8 +223,7 @@
 					<p>&nbsp;&nbsp;</p>
 					<p>&nbsp;&nbsp;</p>
 					<p>
-						<a id="tijiaoanniu" href="OrderSuccess.html"
-							onclick="tijiaodingdan();"></a>
+						<a id="tijiaoanniu"  href="#" onclick="tijiaodingdan();"></a>
 					</p>
 				</div>
 			</div>

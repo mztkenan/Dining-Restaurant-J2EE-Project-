@@ -51,7 +51,6 @@ public class BaseDAO {
 		ArrayList objs = new ArrayList();
 		try {
 			conn = JDBCUtils.getConnection();
-			System.out.println(sql);
 			ps = conn.prepareStatement(sql);
 			if(params != null){
 				ParameterMetaData pm = ps.getParameterMetaData();
@@ -59,7 +58,6 @@ public class BaseDAO {
 					ps.setObject(i, params[i-1]);
 				}	
 			}
-			System.out.println(ps);
 			rs = ps.executeQuery();
 			while(rs.next()){
 				Object obj = mappingObj(rs,clazz);
@@ -94,7 +92,6 @@ public class BaseDAO {
 			// 构造当前列的set方法名称
 			String colname = meta.getColumnLabel(i);
 			String methodname = "set" + colname;
-			System.out.println(rs.getObject(i));
 			// 循环查找同名方法，并通过反射调用该方法，设置属性
 			for(Method method:methods){
 				if(method.getName().equals(methodname)){

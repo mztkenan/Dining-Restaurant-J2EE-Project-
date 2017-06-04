@@ -18,7 +18,7 @@ public class PageModelTest {
 	@Test
 	public void testGetTotalNum(){
 		assertTrue(iProductDao.getTotalNum()==3);
-		System.out.println(iProductDao.getTotalNum());
+		
 	}
 
 }

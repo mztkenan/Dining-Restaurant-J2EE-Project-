@@ -146,11 +146,7 @@ function quedingshanchu(index) {
 	xmlHttp.send(null);
 }// JavaScript Document
 function sahngchu(pid,index, rows) {
-	$("gooddiv" + index).style.display = "none";
-	$("maishuliang" + index).value = 0;
 	window.location.href="DeleteItem?deletePID="+pid;
-	jia(index,rows);
-	jian(index,rows);
 }
 function sahngchu2(uid,index) {
 	window.location.href="DeleteUser?deleteUID="+uid;

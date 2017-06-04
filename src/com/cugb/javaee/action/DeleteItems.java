@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cugb.javaee.bean.CartItem;
+import com.mysql.jdbc.PingTarget;
 
 public class DeleteItems extends HttpServlet {
 

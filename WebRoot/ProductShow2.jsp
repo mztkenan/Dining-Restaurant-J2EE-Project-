@@ -39,7 +39,7 @@
 				               
 				               if(list!=null&&list.size()>0)
 				               {
-				            	   System.out.println(list.size());
+				            	   
 				                for(int i=0;i<Math.ceil(list.size()/3.0);i++)
 				                {
 				                   Product product1 = list.get(3*i);
@@ -48,7 +48,7 @@
 				                   if(3*i+1<list.size()){
 				                	   product2=list.get(3*i+1);
 				                   }
-				                   System.out.println("A"+3*i);
+				                   
 				                   if(3*i+2<list.size()){
 				                	   product3=list.get(3*i+2);
 				                   }
@@ -61,7 +61,7 @@
 					<p><%=product1.getProductDescription()%></p>
 					<div class="menu-rate">
 						<h5>￥<%=product1.getProductPrice()%></h5>
-						<h5><a href="AddItems?PID=<%=product1.getProductId()%>&PNumber=1">购买</a></h5>
+						<h5><a color="#f1e1c1" href="AddItems?PID=<%=product1.getProductId()%>&PNumber=1">购买</a></h5>
 					</div>
 				</div>
 				<%if(product2!=null) {%>
@@ -96,32 +96,29 @@
 		<table cellSpacing=2 cellPadding=1 width="100%" align=center border=0>
 		<tbody>
 		<tr>
-			
+			<td>
 			<ul class="pagination" title="分页列表">
 				<div align="left">
 					  <li class="totalPage">总页数：<i>${requestScope.pageModel.totalPages}</i></li>
 					<li class="currentPage">当前页：<b>${requestScope.pageModel.currentPage}</b></li>
 				</div>
-
-				<div align="right">
-					<a name="btnTopPage"  id="btnTopPage" href="PageListControl?actiontype=pagelist&currentPageNum=1" title="首页">|&lt;&lt; </a>&nbsp;
-					<a name="btnPreviousPage"  id="btnPreviousPage" href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.prevPageNO}" title="上页"> &lt;  </a>&nbsp;
-					<a name="btnNextPage"  id="btnNextPage" href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.nextPageNO}" title="下页">  &gt; </a>&nbsp;
-					<a name="btnBottomPage"  id="btnBottomPage" href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.bottomPageNO}" title="尾页"> &gt;&gt;|</a>
-				</div>
 			</ul>
+			</td>
+			<td>
+				<ul align="right" class="pagination" title="分页列表">
+				  <li class="firstPage currentState"><a href="PageListControl?actiontype=pagelist&currentPageNum=1" title="首页">首页</a></li>
+				  <li class="previousPage currentState"><a href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.prevPageNO}" title="前一页">前一页</a></li>
+				
+				  <li class="nextPage"><a href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.nextPageNO}" title="后一页">后一页</a></li>
+				  <li class="lastPage"><a href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.bottomPageNO}" title="尾页">尾页</a></i>
+				</ul>
+			</td>
 		</tr>
 		</tbody>
 		</table>
 
 		</div>
 	</div>
-<ul class="pagination" title="分页列表">
-  <li class="firstPage currentState"><a href="javascript:;" title="首页">首页</a></li>
-  <li class="previousPage currentState"><a href="javascript:;" title="前一页">前一页</a></li>
 
-  <li class="nextPage"><a href="javascript:;" title="后一页">后一页</a></li>
-  <li class="lastPage"><a href="javascript:;" title="尾页">尾页</a></i>
-</ul>
 </body>
 </html>

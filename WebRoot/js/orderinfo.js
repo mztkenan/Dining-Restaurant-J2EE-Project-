@@ -191,37 +191,18 @@ function checkvalidatecode() {
 
 function tijiaodingdan() {
 	// 检查收货信息是否填写完善
-	if ($("name").value == "" || $("dizhi").value == ""
-			|| $("youbian").value == "" || $("phone").value == "") {
+	if ($("dizhi").value == ""|| $("phone").value == "") {
 		alert("请确保收货人信息填写完整！");
 		return;
 	}
-	// 检查是否核对信息
-	if (!gouxuan()) {
-		return;
-	}
-	// 检查验证码是否填写
-	var validatecode = $("validatecodeinput").value.trim();
-	if (validatecode == "") {
-		alert("请输入验证码！");
-		return;
-	}
+
 	// 收集数据并提交
 	// 获取收货人信息
-	var name = $("name").value.trim();
+	
 	var dizhi = $("dizhi").value.trim();
-	var youbian = $("youbian").value.trim();
 	var phone = $("phone").value.trim();
-	// 获取送货方式信息
-	var sendway = $("xinxip2").innerHTML.trim();
-	// 获取付费方式
-	var payway = $("xinxip3").innerHTML.trim();
-	// 获取运费
-	var yunfei = $("yunfeispan").innerHTML.trim();
-	// 获取货物总金额
-	var zonger = $("zongerspan").innerHTML.trim();
+	var beizhu = $("beizhu").innerHTML.trim();
 
-	window.location.href = "OrderSuccess.aspx?name=" + name + "&dizhi=" + dizhi
-			+ "&youbian=" + youbian + "&phone=" + phone + "&sendway=" + sendway
-			+ "&payway=" + payway + "&yunfei=" + yunfei + "&zonger=" + zonger;
+	window.location.href = "OrderPay?orderAddress" + dizhi + "&orderPhone=" + phone
+			+ "&orderText=" +beizhu ;
 }

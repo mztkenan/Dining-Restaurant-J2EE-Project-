@@ -75,13 +75,22 @@
 		<url-pattern>/DeleteOneItem</url-pattern>
 	</servlet-mapping>
 	
-		<servlet>
+	<servlet>
 		<servlet-name>servlet8</servlet-name>
 		<servlet-class>com.cugb.javaee.action.DeleteUser</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>servlet8</servlet-name>
 		<url-pattern>/DeleteUser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>servlet9</servlet-name>
+		<servlet-class>com.cugb.javaee.action.OrderPay</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servlet9</servlet-name>
+		<url-pattern>/OrderPay</url-pattern>
 	</servlet-mapping>
 	
 	<listener>

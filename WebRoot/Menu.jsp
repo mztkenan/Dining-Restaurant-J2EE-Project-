@@ -34,6 +34,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
+<%
+	String message;
+			if(request.getAttribute("wrongMessage")!=null){
+				message=(String)request.getAttribute("wrongMessage");
+				request.removeAttribute("wrongMessage");
+		%>
+		<script type="text/javascript">
+			alert("<%=message%>");
+		</script>
+<% 		
+			}
+
+%>
 <!-- banner -->
 	<div class="banner1">
 		<div class="container">

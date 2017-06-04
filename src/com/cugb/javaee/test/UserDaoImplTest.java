@@ -25,7 +25,7 @@ public class UserDaoImplTest {
 	@Test
 	public void testFindUsers() {
 		ArrayList<User> list = (ArrayList<User>) iUserDao.findUsers();
-		System.out.println(list);
+		
 		//fail("Not yet implemented");
 	}
 /*
@@ -37,7 +37,7 @@ public class UserDaoImplTest {
 
 	@Test
 	public void testFindUser() {
-		System.out.println(iUserDao.findUser(user));
+		
 		//fail("Not yet implemented");
 	}
 /*
@@ -56,21 +56,21 @@ public class UserDaoImplTest {
 	
 	@Test
 	public void testlogin() {
-		System.out.println(iUserDao.login(user, "1"));
-		System.out.println(iUserDao.login(user, "2"));
+		
+		
 		//fail("Not yet implemented");
 	}
 
 	@Test
 	public void testFindUsername() {
-		System.out.println(iUserDao.findUsername("3"));
+		
 		//fail("Not yet implemented");
 	}
 */
 	/*
 	@Test
 	public void testCountRows() {
-		System.out.println(iUserDao.countRows());
+		
 		//fail("Not yet implemented");
 	}*/
 }

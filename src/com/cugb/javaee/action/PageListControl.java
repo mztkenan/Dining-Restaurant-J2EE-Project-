@@ -64,8 +64,6 @@ public class PageListControl extends HttpServlet {
 	private void pageListView(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 获取当前页号
-		System.out.println(request.getParameter("currentPageNum"));
-	
 		int currentPageNum = Integer.parseInt(request.getParameter("currentPageNum"));
 		// 生成pageModel对象
 		ProductService serv = new ProductService();

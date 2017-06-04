@@ -57,7 +57,7 @@ public class MyDataSource implements DataSource {
 	public Connection getConnection(){
 		if(this.connPool.size()>0){
 			Connection conn = (Connection)this.connPool.removeFirst();
-//			System.out.println(conn.toString());
+//			
 			return  conn;
 		}else{
 			return createConnection();

@@ -37,8 +37,8 @@
             		Product pro=tmp.getDish();
             		int qty=tmp.getQuantity();
             		sum = sum + qty*pro.getProductPrice();
-            		System.out.println(pro.getProductImage());
-            		System.out.println(pro.getProductId());
+            		
+            		
             %>
             
              <div class="goodinfo" id="gooddiv<%=i+1%>" >
@@ -62,6 +62,10 @@
 			</div>	
 			<%
             	}
+            }
+            else{
+            	request.setAttribute("wrongMessage", "您的购物车为空");
+            	request.getRequestDispatcher("Menu.jsp").forward(request, response);
             }
 			%>	
 			</div>
