@@ -14,30 +14,29 @@ public class UserLogOut extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
-		//注销
-		 response.setCharacterEncoding("UTF-8");  
-	        response.setHeader("Content-type", "text/html;charset=UTF-8");  
-	        PrintWriter out = response.getWriter();  
-	        HttpSession session = request.getSession(false);  
-	        if (session == null) {  
-	            // 没登录，重定向到首页  
-	            String url = response.encodeRedirectURL(request.getContextPath()  
-	                    + "/index.jsp");  
-	            response.sendRedirect(url);  
-	            return;  
-	        }  
-	        // 从session中移除登录状态  
-	        session.removeAttribute("user");  
-	        session.invalidate();
-	        // 重定向到首页，URL重写方式  
-	        String url = response.encodeRedirectURL(request.getContextPath() + "/index.jsp");  
-	        response.sendRedirect(url);  
+		doPost(request, response);
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//注销
+		 response.setCharacterEncoding("UTF-8");  
+        response.setHeader("Content-type", "text/html;charset=UTF-8");  
+        PrintWriter out = response.getWriter();  
+        HttpSession session = request.getSession(false);  
+        if (session == null) {  
+            // 没登录，重定向到首页  
+            String url = response.encodeRedirectURL(request.getContextPath()  
+                    + "/index.jsp");  
+            response.sendRedirect(url);  
+            return;  
+        }  
+        // 从session中移除登录状态  
+        session.removeAttribute("user");  
+        session.invalidate();
+        // 重定向到首页，URL重写方式  
+        String url = response.encodeRedirectURL(request.getContextPath() + "/index.jsp");  
+        response.sendRedirect(url);  
 	}
 
 }

@@ -24,18 +24,19 @@ import com.cugb.javaee.utils.DaoFactory;
 public class OrderPay extends HttpServlet{
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = request.getSession(false); 
-		User user = (User) session.getAttribute("user");
-		if(user==null){
-	       	request.setAttribute("wrongMessage", "您未登录，请先登录");
-        	request.getRequestDispatcher("Menu.jsp").forward(request, resp);
-        	return;
-		}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doPost(request, response);
+
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		String orderAddress = request.getParameter("orderAddress");
 		String orderPhone = request.getParameter("orderPhone");
 		String orderText = request.getParameter("orderText");
-		//时间戳给订单添加编号
 		Timestamp dateTime = new Timestamp(System.currentTimeMillis()); 
 		
 		
@@ -59,13 +60,6 @@ public class OrderPay extends HttpServlet{
 			
 			iProductDao.updateProductNumber(cartItemArray.get(i).getDish().getProductId(), cartItemArray.get(i).getQuantity());
 		}
-
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
 	}
 
 }

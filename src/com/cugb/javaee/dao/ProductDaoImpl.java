@@ -13,7 +13,7 @@ import com.cugb.javaee.utils.JDBCUtils;
 
 public class ProductDaoImpl extends BaseDAO implements IProductDao {
 
-	//XXX ÓÉÓÚ¼Ì³ÐÁËbaseDao¿ÉÒÔ¼ò»¯
+	//XXX ï¿½ï¿½ï¿½Ú¼Ì³ï¿½ï¿½ï¿½baseDaoï¿½ï¿½ï¿½Ô¼ï¿½
 	@Override
 	public ArrayList<Product> findProducts() {
 		// TODO Auto-generated method stub
@@ -172,6 +172,25 @@ public class ProductDaoImpl extends BaseDAO implements IProductDao {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public int countRows() {
+		// TODO Auto-generated method stub
+		int ret = 0;
+		try {
+			String sql = "select count(*) from product";
+			Connection conn = JDBCUtils.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()){
+				ret = rs.getInt(1);
+			}
+			JDBCUtils.free(rs, ps, conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ret;
 	}
 
 }

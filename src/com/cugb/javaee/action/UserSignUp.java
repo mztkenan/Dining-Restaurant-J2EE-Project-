@@ -16,6 +16,11 @@ public class UserSignUp extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userName = request.getParameter("userName");
 		String passWord = request.getParameter("passWord");
 		String passWord2 = request.getParameter("passWord2");
@@ -38,11 +43,5 @@ public class UserSignUp extends HttpServlet {
 			String url = response.encodeRedirectURL(request.getContextPath() + "/Menu.jsp");  
 	        response.sendRedirect(url);  
 		}
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
 	}
 }

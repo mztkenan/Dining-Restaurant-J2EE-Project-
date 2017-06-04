@@ -28,10 +28,17 @@ import com.cugb.javaee.utils.DaoFactory;
  *
  */
 public class AddItems extends HttpServlet {
-	//思路混乱，没有写好
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doPost(request, response);
+		
+
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String productId = request.getParameter("PID");
 		String pnumber = request.getParameter("PNumber");
 		//形成购物车变量
@@ -66,13 +73,6 @@ public class AddItems extends HttpServlet {
 		String url = response.encodeRedirectURL(request  
                 .getContextPath() + "/Menu.jsp");  
         response.sendRedirect(url);  
-
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
 	}
 	
 }

@@ -16,6 +16,11 @@ public class AddOneItem extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		ArrayList<CartItem> cartItemArray=(ArrayList<CartItem>) session.getAttribute("carItemArray");
 		String PID=request.getParameter("AddOnePID");
@@ -30,12 +35,6 @@ public class AddOneItem extends HttpServlet {
 		String url = response.encodeRedirectURL(request  
                 .getContextPath() + "/shopCart.jsp");  
         response.sendRedirect(url); 
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
 	}
 
 }
