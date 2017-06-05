@@ -1,3 +1,13 @@
+<%@page import="com.cugb.javaee.bean.OrderInfomation"%>
+<%@page import="com.cugb.javaee.utils.PageModel"%>
+<%@page import="com.cugb.javaee.biz.ProductService"%>
+<%@page import="com.cugb.javaee.dao.IProductDao"%>
+<%@page import="com.cugb.javaee.bean.User"%>
+<%@page import="com.cugb.javaee.utils.DaoFactory"%>
+<%@page import="com.cugb.javaee.dao.IUserDao"%>
+<%@page import="com.cugb.javaee.bean.Product"%>
+<%@page import="com.cugb.javaee.bean.CartItem"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -31,6 +41,48 @@
         </div>
     </div>
     
+	<div id="content">
+		<div id="body">
+			<ul>
+                <li class="id">订单编号</li>
+                <li class="name">送货地址</li>
+                <li class="lowprice">下单时间</li>
+                <li class="quantity">订单总额</li>
+                <li class="operate">订单状态</li>
+                <li class="operate">订单备注</li>
+			</ul>
+			<div id="goodlist">
+				<%
+					
+					String uid=request.getParameter("UID");
+					
+				
+					ArrayList<OrderInfomation> list = (ArrayList<OrderInfomation>) ;
+					if (list != null) {
+						for (int i = 0; i < list.size(); i++) {
+							OrderInfomation order= list.get(i);
+							
+							
+							
+							
+							
+						
+				%>
+				<div class="goodinfo" id="gooddiv<%=i + 1%>">
+					<span class="orderid"><p><%=order.getOrderId()%></p></span> 
+					<span class="ordername"><%=order.getOrderAddress()%></span> 
+					<span class="orderdate"><%=order.getOrderDate()%></span>
+					<span class="caozuo"> <%=order.getOrderPrice()%></span>
+					<span class="quantity"> <%=order.getOrderState()%></span>
+					<span class="quantity"> <%=order.getOrderRemark()%></span>
+				</div>
+				<%
+					}
+					}
+				%>
+			</div>
 
+		</div>
+	</div>
 </body>
 </html>

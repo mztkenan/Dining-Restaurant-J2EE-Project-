@@ -1,3 +1,4 @@
+<%@page import="com.cugb.javaee.bean.User"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -34,19 +35,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<%
-	String message;
-			if(request.getAttribute("wrongMessage")!=null){
-				message=(String)request.getAttribute("wrongMessage");
-				request.removeAttribute("wrongMessage");
-		%>
-		<script type="text/javascript">
-			alert("<%=message%>");
-		</script>
-<% 		
-			}
-
-%>
 <!-- banner -->
 	<div class="banner1">
 		<div class="container">
@@ -68,11 +56,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 					  <ul class="nav navbar-nav">
+<%
+	User user=	(User)request.getAttribute("user");
+	if(user!=null){						
+%>
 						<li><a href="Sign.jsp">登录</a></li>
+<%
+	}
+	else{
+%>
+						<li><a href="#">注销</a></li>
+<%
+	}
+%>
 						<li class="active"><a href="Menu.jsp">菜单</a></li>
 						<li><a href="shopCart.jsp">购物车</a></li>
 						<li><a href="MyOrder.jsp">订单</a></li>
-						<li><a href="contact.html">联系我们</a></li>
+						<li><a href="#">管理员入口</a></li>
 					  </ul>
 					</div><!-- /.navbar-collapse -->
 				</nav>

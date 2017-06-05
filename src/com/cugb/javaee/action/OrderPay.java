@@ -33,19 +33,29 @@ public class OrderPay extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		HttpSession session=request.getSession(false);
 		String orderAddress = request.getParameter("orderAddress");
 		String orderPhone = request.getParameter("orderPhone");
 		String orderText = request.getParameter("orderText");
 		Timestamp dateTime = new Timestamp(System.currentTimeMillis()); 
-		
-		
+
+		if(session==null){
+			request.setAttribute("wrongMessage", "您未登录");
+			request.getRequestDispatcher("WrongMessage.jsp").forward(request, response);
+			return;
+		}
+		User user=(User)session.getAttribute("user");
+		if(user==null){
+			request.setAttribute("wrongMessage", "您未登录");
+			request.getRequestDispatcher("WrongMessage.jsp").forward(request, response);
+			return;
+		}
 		ArrayList<CartItem> cartItemArray=(ArrayList<CartItem>) session.getAttribute("carItemArray");
 		IOrderInfomationDao iOrderInfomationDao = (IOrderInfomationDao) DaoFactory.newInstance("IOrderInfomationDao");
 		IProductDao iProductDao = (IProductDao) DaoFactory.newInstance("IProductDao");
 		if(cartItemArray==null){
-			request.setAttribute("isShopCartEmpty", "您的购物车为空");
-			request.getRequestDispatcher("Menu.jsp").forward(request, resp);
+			request.setAttribute("wrongMessage", "您的购物车为空");
+			request.getRequestDispatcher("WrongMessage.jsp").forward(request, response);
 		}
 		else
 		for(int i=0; i < cartItemArray.size() ; i++){
@@ -60,6 +70,7 @@ public class OrderPay extends HttpServlet{
 			
 			iProductDao.updateProductNumber(cartItemArray.get(i).getDish().getProductId(), cartItemArray.get(i).getQuantity());
 		}
+		request.getRequestDispatcher("OrderSuccess.jsp").forward(request, response);
 	}
 
 }

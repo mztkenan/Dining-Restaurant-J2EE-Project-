@@ -65,7 +65,8 @@
             }
             else{
             	request.setAttribute("wrongMessage", "您的购物车为空");
-            	request.getRequestDispatcher("Menu.jsp").forward(request, response);
+            	request.setAttribute("target", "Menu.jsp");
+            	request.getRequestDispatcher("WrongMessage.jsp").forward(request, response);
             }
 			%>	
 			</div>

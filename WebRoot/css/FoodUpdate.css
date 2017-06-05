@@ -1,0 +1,30 @@
+*{padding:0px;margin:0px;position:relative; text-decoration:none;}
+#content{width:960px;height:600px;margin:0px auto;}
+#body{ text-align:center; padding:15px 0px;}
+#body a:hover{ color:red;}
+
+
+#goodlist div.goodinfo span {
+    display: inline-block;
+    text-align: center;
+    padding-top: 30px;
+    border-right: 1px solid #dcdcdc;
+    overflow: hidden;
+}
+#goodlist div.goodinfo span{
+    width: 140px;
+    padding: 9px 0px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+

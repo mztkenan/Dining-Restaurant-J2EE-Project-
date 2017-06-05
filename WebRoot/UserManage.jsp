@@ -36,16 +36,13 @@
 						int row = list.size();
 						for (int i = 0; i < list.size(); i++) {
 							User user = list.get(i);
-							String name = user.getUsername();
-							String id = user.getUserId();
-							String password = user.getPassword();
 				%>
 				<div class="goodinfo" id="gooddiv<%=i + 1%>">
 					<span class="mingcheng"><p><%=user.getUsername()%></p></span> 
 					<span class="dijia"><%=user.getUserId()%></span> 
 					<span class="shuliang"><%=user.getPassword()%></span>
 					<span class="caozuo"> 
-					<a href="#"	onclick="sahngchu2(<%=id%>,<%=i + 1%>);">删除</a>
+					<a href="#"	onclick="sahngchu2(<%=user.getUserId()%>);">删除</a>
 					</span>
 				</div>
 				<%

@@ -1,6 +1,10 @@
 package com.cugb.javaee.action;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cugb.javaee.bean.Product;
 import com.cugb.javaee.biz.ProductService;
+import com.cugb.javaee.utils.DaoFactory;
 import com.cugb.javaee.utils.PageModel;
 /**
  * Servlet implementation class PageListControl
@@ -21,7 +26,7 @@ import com.cugb.javaee.utils.PageModel;
 @WebServlet("/PageListControl")
 public class PageListControl extends HttpServlet {
 	//private Logger logger = Logger.getLogger(getClass());
-	private int pageSize = 6;// ·Åµ½ÅäÖÃÎÄ¼ş
+	private static int pageSize = 6;// é»˜è®¤å€¼ï¼Œæä¾›å‡½æ•°è¯»å–é…ç½®æ–‡ä»¶è¿›è¡Œä¿®æ”¹
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -39,19 +44,12 @@ public class PageListControl extends HttpServlet {
 		// TODO Auto-generated method stub
 		String actiontype = request.getParameter("actiontype");
 		switch (actiontype) {
-		case "login":
-			// µÇÂ¼
-			//loginCheck(request, response);
-			break;
 		case "pagelist":
-			// ·ÖÒ³ÏÔÊ¾
+			// åˆ†é¡µÊ¾
 			pageListView(request, response);
 			break;
-		case "detail":
-			// ÏÔÊ¾Ä³Ò»¸ö²ËÆ·µÄÏêÏ¸ĞÅÏ¢
-		case "cart":
-			// Ìí¼Óµ½¹ºÎï³µ
-		}
+
+					}
 	}
 
 	/**
@@ -63,19 +61,34 @@ public class PageListControl extends HttpServlet {
 	}
 	private void pageListView(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// »ñÈ¡µ±Ç°Ò³ºÅ
+		//å½“å‰é¡µ
 		int currentPageNum = Integer.parseInt(request.getParameter("currentPageNum"));
-		// Éú³ÉpageModel¶ÔÏó
+		String target =request.getParameter("target");
+		String property=request.getParameter("property");
+		pageSize=loadPageSize(property);
+		// è°ƒç”¨ä¸šåŠ¡é€»è¾‘å±‚çš„æ¥å£å¾—åˆ°æ§åˆ¶model
 		ProductService serv = new ProductService();
 		PageModel<Product> pagemodel = serv.showPagelist(currentPageNum, pageSize);
-		// Ìø×ªµ½showÒ³Ãæ
+		// å°†ProductListã€pageModelã€currentPageNumä¼ ç»™æ‰ç”¨åˆ†é¡µç•Œé¢
 		
 		request.setAttribute("ProductList", pagemodel.getList());
 		request.setAttribute("pageModel", pagemodel);
 		RequestDispatcher rd = request
-				.getRequestDispatcher("Menu.jsp?currentPageNum=" + currentPageNum + "&totalPages=" + pagemodel.getTotalPages());
+				.getRequestDispatcher(target+"?currentPageNum=" + currentPageNum + "&totalPages=" + pagemodel.getTotalPages());
 		rd.forward(request, response);
 
+	}
+	public static int loadPageSize(String name) {
+		Properties pro=new Properties();
+		InputStream in = DaoFactory.class.getClassLoader().getResourceAsStream("daoconfig.properties");
+		try {
+			pro.load(in);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		pageSize=Integer.parseInt(pro.getProperty(name));
+		return pageSize;
 	}
 
 }

@@ -145,10 +145,10 @@ function quedingshanchu(index) {
 	// 发送请求
 	xmlHttp.send(null);
 }// JavaScript Document
-function sahngchu(pid,index, rows) {
+function sahngchu(pid) {
 	window.location.href="DeleteItem?deletePID="+pid;
 }
-function sahngchu2(uid,index) {
+function sahngchu2(uid) {
 	window.location.href="DeleteUser?deleteUID="+uid;
 }
 function jia(pid,index, rows) {
@@ -188,4 +188,8 @@ function jian(pid,index,rows) {
 	}
 	
 	window.location.href="DeleteOneItem?DeleteOnePID="+pid;
+}
+
+function update(pid){
+	window.location.href="FoodUpdate.jsp?PID="+pid;
 }

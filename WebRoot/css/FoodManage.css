@@ -1,0 +1,30 @@
+*{padding:0px;margin:0px;position:relative; text-decoration:none;}
+#content{width:960px;height:600px;margin:0px auto;}
+#body{ text-align:left; padding:15px 0px;}
+#body a{ color:blue;}
+#body a:hover{ color:red;}
+#tu{  height:27px; background:url(../images/bg_cart_pic.gif) no-repeat;margin-bottom:15px;margin-top:0px;}
+#body ul{ display:block; width:960px; height:29px; border-top:2px solid #dFc9B2; border-bottom:1px solid #dFc9B2; overflow:hidden; list-style-type:none; color:#8a7152;background:#D7D7D7}
+#body ul li{ float:left; line-height:28px; text-align:center;}
+#body ul li.id{ width:150px;}
+#body ul li.name{ width:200px;}
+#body ul li.lowprice{ width:200px;}
+#body ul li.quantity{ width:200px; /*background:url(../images/icon_cart.gif) no-repeat 87px -80px;*/}
+#body ul li.operate{ width:200px;}
+#goodlist{ border-bottom:1px solid #dFc9B2;}
+
+#goodlist div.goodinfo{ height:74px; border-bottom:1px solid #dcdcdc;position:relative;}
+#goodlist div.goodinfo span{ display:inline-block; text-align:center; height:44px; padding-top:30px; border-right:1px solid #dcdcdc; overflow:hidden;}
+#goodlist div.goodinfo span.productid{ width:140px; height:56px; padding:9px 0px; padding-left:20px;   text-align:left;}
+#goodlist div.goodinfo span.productid p{ position:absolute; left:86px; top:30px;}
+
+#goodlist div.goodinfo span.productname{width:180px; color:red;}
+#goodlist div.goodinfo span.productprice{ width:180px;}
+#goodlist div.goodinfo span.quantity{ width:180px;}
+#goodlist div.goodinfo span.caozuo{ width:220px;}
+
+
+
+
+
+

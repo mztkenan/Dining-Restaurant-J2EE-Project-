@@ -1,3 +1,4 @@
+<%@page import="com.cugb.javaee.action.PageListControl"%>
 <%@page import="com.cugb.javaee.biz.ProductService"%>
 <%@page import="com.cugb.javaee.utils.PageModel"%>
 <%@page import="java.util.ArrayList"%>
@@ -15,9 +16,10 @@
 </head>
 <body>
 <%
+	int pageSize=PageListControl.loadPageSize("FoodPageSize");
 	if(request.getParameter("currentPageNum")==null){
 		ProductService iProductService=new ProductService();
-		PageModel pagemodel=iProductService.showPagelist(1, 6);
+		PageModel pagemodel=iProductService.showPagelist(1, pageSize);
 		request.setAttribute("ProductList", pagemodel.getList());
 		request.setAttribute("pageModel", pagemodel); 
 	}
@@ -61,7 +63,7 @@
 					<p><%=product1.getProductDescription()%></p>
 					<div class="menu-rate">
 						<h5>￥<%=product1.getProductPrice()%></h5>
-						<h5><a color="#f1e1c1" href="AddItems?PID=<%=product1.getProductId()%>&PNumber=1">购买</a></h5>
+						<h5><a style="color:#efedb5 !important;" href="AddItems?PID=<%=product1.getProductId()%>&PNumber=1">购买</a></h5>
 					</div>
 				</div>
 				<%if(product2!=null) {%>
@@ -71,7 +73,7 @@
 					<p><%=product2.getProductDescription()%></p>
 					<div class="menu-rate">
 						<h5>$<%=product2.getProductPrice()%></h5>
-						<h5><a href="AddItems?PID=<%=product2.getProductId()%>&PNumber=1">购买</a></h5>
+						<h5><a style="color:#efedb5 !important;" href="AddItems?PID=<%=product2.getProductId()%>&PNumber=1">购买</a></h5>
 					</div>
 				</div>
 				<%} %>
@@ -82,7 +84,7 @@
 					<p><%=product3.getProductDescription()%></p>
 					<div class="menu-rate">
 						<h5>$<%=product3.getProductPrice()%></h5>
-						<h5><a href="AddItems?PID=<%=product3.getProductId()%>&PNumber=1">购买</a></h5>
+						<h5><a style="color:#efedb5 !important;" href="AddItems?PID=<%=product3.getProductId()%>&PNumber=1">购买</a></h5>
 					</div>
 				</div>
 				<%} %>				
@@ -106,11 +108,11 @@
 			</td>
 			<td>
 				<ul align="right" class="pagination" title="分页列表">
-				  <li class="firstPage currentState"><a href="PageListControl?actiontype=pagelist&currentPageNum=1" title="首页">首页</a></li>
-				  <li class="previousPage currentState"><a href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.prevPageNO}" title="前一页">前一页</a></li>
+				  <li class="firstPage currentState"><a href="PageListControl?actiontype=pagelist&currentPageNum=1&target=Menu.jsp&property=FoodPageSize" title="首页">首页</a></li>
+				  <li class="previousPage currentState"><a href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.prevPageNO}&target=Menu.jsp&property=FoodPageSize" title="前一页">前一页</a></li>
 				
-				  <li class="nextPage"><a href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.nextPageNO}" title="后一页">后一页</a></li>
-				  <li class="lastPage"><a href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.bottomPageNO}" title="尾页">尾页</a></i>
+				  <li class="nextPage"><a href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.nextPageNO}&target=Menu.jsp&property=FoodPageSize" title="后一页">后一页</a></li>
+				  <li class="lastPage"><a href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.bottomPageNO}&target=Menu.jsp&property=FoodPageSize" title="尾页">尾页</a></i>
 				</ul>
 			</td>
 		</tr>

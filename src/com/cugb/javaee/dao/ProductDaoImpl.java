@@ -158,7 +158,7 @@ public class ProductDaoImpl extends BaseDAO implements IProductDao {
 	@Override
 	public boolean updateProductNumber(String productid, int number) {
 		// TODO Auto-generated method stub
-		IProductDao iProductDao = (IProductDao) DaoFactory.newInstance("IproductDao");
+		IProductDao iProductDao = (IProductDao) DaoFactory.newInstance("IProductDao");
 		Product product = iProductDao.findProduct(productid);
 		try {
 			String sql = "update product set productRemained=? where productId=?";
