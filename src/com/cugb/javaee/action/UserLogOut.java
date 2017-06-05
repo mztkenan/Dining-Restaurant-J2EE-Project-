@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.cugb.javaee.bean.User;
+
 public class UserLogOut extends HttpServlet {
 
 	@Override
@@ -23,20 +25,11 @@ public class UserLogOut extends HttpServlet {
 		 response.setCharacterEncoding("UTF-8");  
         response.setHeader("Content-type", "text/html;charset=UTF-8");  
         PrintWriter out = response.getWriter();  
-        HttpSession session = request.getSession(false);  
-        if (session == null) {  
-            // 没登录，重定向到首页  
-            String url = response.encodeRedirectURL(request.getContextPath()  
-                    + "/index.jsp");  
-            response.sendRedirect(url);  
-            return;  
-        }  
-        // 从session中移除登录状态  
-        session.removeAttribute("user");  
-        session.invalidate();
-        // 重定向到首页，URL重写方式  
-        String url = response.encodeRedirectURL(request.getContextPath() + "/index.jsp");  
-        response.sendRedirect(url);  
+        HttpSession session = request.getSession(false); 
+    	session.removeAttribute("user");  
+    	session.invalidate(); 
+        String url = response.encodeRedirectURL(request.getContextPath() + "/Menu.jsp");  
+    	response.sendRedirect(url);
 	}
 
 }

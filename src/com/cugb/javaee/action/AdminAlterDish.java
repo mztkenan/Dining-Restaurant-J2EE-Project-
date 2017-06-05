@@ -22,9 +22,11 @@ public class AdminAlterDish extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//向数据库的product修改一条数据
+		//鍚戞暟鎹簱鐨刾roduct淇敼涓�鏉℃暟鎹�
+		request.setCharacterEncoding("utf-8");
 		IProductDao iProductDao = (IProductDao) DaoFactory.newInstance("IProductDao");
 		String productId =  request.getParameter("productId");
+		System.out.println("pid"+productId);
 		String productName = request.getParameter("productName");
 		float productPrice =Float.valueOf( request.getParameter("productPrice"));
 		int productRemained = Integer.parseInt(request.getParameter("productRemained"));
@@ -32,8 +34,8 @@ public class AdminAlterDish extends HttpServlet {
 		String productImage = request.getParameter("productImage");
 		Product product = new Product(productId,productName,productPrice,productRemained,productDescription,productImage);
 		iProductDao.updateProduct(product);
-		// 重定向到首页，URL重写方式  
-        String url = response.encodeRedirectURL(request.getContextPath() + "/index.jsp");  
+		// 閲嶅畾鍚戝埌棣栭〉锛孶RL閲嶅啓鏂瑰紡  
+        String url = response.encodeRedirectURL(request.getContextPath() + "/Menu.jsp");  
         response.sendRedirect(url);  
 	}
 	

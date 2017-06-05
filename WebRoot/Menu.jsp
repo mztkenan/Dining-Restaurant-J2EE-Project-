@@ -57,22 +57,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 					  <ul class="nav navbar-nav">
 <%
-	User user=	(User)request.getAttribute("user");
-	if(user!=null){						
+	User user=	(User)session.getAttribute("user");
+							
+	if(user==null){						
 %>
 						<li><a href="Sign.jsp">登录</a></li>
 <%
 	}
 	else{
 %>
-						<li><a href="#">注销</a></li>
+						<li><a href="UserLogOut">注销</a></li>
 <%
 	}
 %>
 						<li class="active"><a href="Menu.jsp">菜单</a></li>
 						<li><a href="shopCart.jsp">购物车</a></li>
 						<li><a href="MyOrder.jsp">订单</a></li>
-						<li><a href="#">管理员入口</a></li>
+						<%
+							if(user!=null&&user.getUserType()==2){
+						%>
+						<li><a href="FoodManage.jsp">管理员入口</a></li>
+						<%
+							}
+						%>
 					  </ul>
 					</div><!-- /.navbar-collapse -->
 				</nav>
@@ -94,13 +101,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 <!-- //menu -->
-<!--footer-->
-	<div class="footer-bottom">
-		<div class="container">		
-			<p>Copyright &copy; 2017.Lengendary All rights reserved.</p>					
-		</div>
-	</div>
-<!--//footer-->	
 <!-- for bootstrap working -->
 		<script src="js/bootstrap.js"> </script>
 <!-- //for bootstrap working -->

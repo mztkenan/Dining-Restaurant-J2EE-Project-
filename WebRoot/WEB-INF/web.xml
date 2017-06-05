@@ -25,7 +25,7 @@
 
 	<servlet-mapping>
 		<servlet-name>servlet2</servlet-name>
-		<url-pattern>/_do2</url-pattern>
+		<url-pattern>/UserLogOut</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -92,7 +92,24 @@
 		<servlet-name>servlet9</servlet-name>
 		<url-pattern>/OrderPay</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>servlet10</servlet-name>
+		<servlet-class>com.cugb.javaee.action.UserLogOut</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servlet10</servlet-name>
+		<url-pattern>/UserLogOut</url-pattern>
+	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>servlet11</servlet-name>
+		<servlet-class>com.cugb.javaee.action.AdminAlterDish</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servlet11</servlet-name>
+		<url-pattern>/AdminAlterDish</url-pattern>
+	</servlet-mapping>
+		
 	<listener>
 		<listener-class>com.cugb.javaee.action.UserSessionListener</listener-class>
 	</listener>

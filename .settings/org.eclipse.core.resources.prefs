@@ -1,12 +1,15 @@
 eclipse.preferences.version=1
 encoding//WebRoot/ConfirmOrder.jsp=UTF-8
 encoding//WebRoot/FoodUpdate.jsp=UTF-8
+encoding//WebRoot/Sign.jsp=UTF-8
 encoding//WebRoot/index.jsp=UTF-8
 encoding//WebRoot/shopCart.jsp=UTF-8
 encoding//src/com/cugb/javaee/action/AddItems.java=UTF-8
+encoding//src/com/cugb/javaee/action/AdminAlterDish.java=UTF-8
 encoding//src/com/cugb/javaee/action/OrderPay.java=UTF-8
 encoding//src/com/cugb/javaee/action/PageListControl.java=UTF-8
 encoding//src/com/cugb/javaee/action/UserLogIn.java=UTF-8
+encoding//src/com/cugb/javaee/action/UserLogOut.java=UTF-8
 encoding//src/com/cugb/javaee/action/UserSessionAttributeListener.java=UTF-8
 encoding//src/com/cugb/javaee/action/UserSignUp.java=UTF-8
 encoding//src/com/cugb/javaee/dao/BaseDAO.java=UTF-8

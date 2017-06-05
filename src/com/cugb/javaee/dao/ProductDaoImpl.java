@@ -86,6 +86,7 @@ public class ProductDaoImpl extends BaseDAO implements IProductDao {
 		// TODO Auto-generated method stub
 		try {
 			String sql = "update product set productName=?,productPrice=?,productRemained=?,productDescription=?,productImage=? where productId=?";
+			System.out.println(sql);
 			Connection conn = JDBCUtils.getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, product.getProductName());

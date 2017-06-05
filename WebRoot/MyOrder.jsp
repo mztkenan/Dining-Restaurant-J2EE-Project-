@@ -26,18 +26,6 @@
         	    <span class="orderstate">订单列表</span>
     	    </div>
              <div class="orderlist">
-                <table  cellspacing="0" cellpadding="0">
-                  <tr class="head">
-                    <td>订单号</td>
-                    <td>下单日期</td>
-                    <td>总货款</td>
-                    <td>运费</td>
-                    <td>送货方式与时间</td>
-                    <td>付款方式</td>
-                    <td>订单状态</td>
-                    <td>订单详情</td>
-                    <td>处理订单</td>
-                  </tr>
              <div>
         </div>
     </div>
@@ -57,7 +45,7 @@
 					
 					String uid=request.getParameter("UID");
 					
-					IOrderInfomationDao iDao=(IOrderInfomationDao)DaoFactory.newInstance("IOrderItemDao");
+					IOrderInfomationDao iDao=(IOrderInfomationDao)DaoFactory.newInstance("IOrderInfomationDao");
 					System.out.print(iDao);
 					ArrayList<OrderInfomation> list = (ArrayList<OrderInfomation>) iDao.findOrderInfomationsForUser(uid);
 					if (list != null) {

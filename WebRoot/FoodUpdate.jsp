@@ -40,28 +40,32 @@
 			</div>
 			</div>
 		</div>
+		<form action="AdminAlterDish?productId=<%=pid%>" method="post">
 			<TABLE cellSpacing=0 cellPadding=0 width=100% border=0>
 				<TBODY>
 					<TR>
-						<TD>商品名称: </TD><TD><input type="text" name="ProductName" placeholder="<%=pro.getProductName()%>" ></TD>
+						<TD>商品名称: </TD><TD><input type="text" name="productName" value="<%=pro.getProductName()%>" ></TD>
 					</TR>
 					<TR>
-						<TD>价格:</TD><TD><input type="text" name="ProductName" placeholder="<%=pro.getProductPrice()%>" ></TD>
+						<TD>价格:</TD><TD><input type="text" name="productPrice" value="<%=pro.getProductPrice()%>" ></TD>
 					</TR>
 					<TR>
-						<TD >库存:</TD><TD valign="top"><input type="text" name="ProductName" placeholder="<%=pro.getProductRemained() %>" ></TD>
+						<TD >库存:</TD><TD valign="top"><input type="text" name="productRemained" value="<%=pro.getProductRemained() %>" ></TD>
 					</TR>
 					<TR>
-						<TD style="vertical-align:top">描述:</TD><TD ><input style="height:140px;vertical-align:top" type="text" name="ProductName" placeholder="<%=pro.getProductDescription() %>" ></TD>
+						<TD style="vertical-align:top">描述:</TD><TD ><textarea name="productDescription" style="height:140px;vertical-align:top" type="text" name="ProductName"  ><%=pro.getProductDescription() %></textarea></TD>
 					</TR>						
 					<TR>
-						<TD>图片:</TD><TD><input type="text" name="ProductName" placeholder="<%=pro.getProductImage()%>" ></TD>
+						<TD>图片:</TD><TD><input type="text" name="productImage" value="<%=pro.getProductImage()%>" ></TD>
 					</TR>
 					<TR>
-						<TD></TD><TD><input type="text" name="submmit" value="确认提交" action=""></TD>
-					</TR>										
+						
+						<TD><input type="text" name="productId" value="<%=pid %>" style="display:none">	</TD><TD><input type="submit" name="submit" value="确认提交" ></TD>
+					</TR>
+														
 				</TBODY>
 			</TABLE>
+			</form>
 			<br>
 			<br>
 			<div class="ImageShow"><img alt="商品图片" src="<%=pro.getProductImage()%>"></div>
