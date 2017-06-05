@@ -1,3 +1,4 @@
+<%@page import="com.cugb.javaee.dao.IOrderInfomationDao"%>
 <%@page import="com.cugb.javaee.bean.OrderInfomation"%>
 <%@page import="com.cugb.javaee.utils.PageModel"%>
 <%@page import="com.cugb.javaee.biz.ProductService"%>
@@ -56,17 +57,12 @@
 					
 					String uid=request.getParameter("UID");
 					
-				
-					ArrayList<OrderInfomation> list = (ArrayList<OrderInfomation>) ;
+					IOrderInfomationDao iDao=(IOrderInfomationDao)DaoFactory.newInstance("IOrderItemDao");
+					System.out.print(iDao);
+					ArrayList<OrderInfomation> list = (ArrayList<OrderInfomation>) iDao.findOrderInfomationsForUser(uid);
 					if (list != null) {
 						for (int i = 0; i < list.size(); i++) {
-							OrderInfomation order= list.get(i);
-							
-							
-							
-							
-							
-						
+							OrderInfomation order= list.get(i);			
 				%>
 				<div class="goodinfo" id="gooddiv<%=i + 1%>">
 					<span class="orderid"><p><%=order.getOrderId()%></p></span> 

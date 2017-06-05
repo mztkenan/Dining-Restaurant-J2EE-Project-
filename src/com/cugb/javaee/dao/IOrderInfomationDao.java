@@ -12,5 +12,5 @@ public interface IOrderInfomationDao {
 	public int deleteOrderInfomation(OrderInfomation orderInfomation);
 	public boolean updateOrderInfomation(String userId,String orderId,String oldType,String newType);
 	public String countOrderInfomation() ;
-	public ArrayList<OrderInfomation> findOrderInfomationsForUser();
+	public ArrayList<OrderInfomation> findOrderInfomationsForUser(String UID);
 }

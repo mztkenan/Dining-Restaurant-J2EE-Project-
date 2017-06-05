@@ -162,13 +162,14 @@ public class OrderInfomationDaoImpl implements IOrderInfomationDao {
 	}
 
 	@Override
-	public ArrayList<OrderInfomation> findOrderInfomationsForUser() {
+	public ArrayList<OrderInfomation> findOrderInfomationsForUser(String UID) {
 		// TODO Auto-generated method stub
-		ArrayList<OrderInfomation> orderInfomations = new ArrayList(); 
+		ArrayList<OrderInfomation> orderInfomations = new ArrayList<OrderInfomation> (); 
 		try {
 			String sql = "select * from orderInfomation where userId=?";
 			Connection conn = JDBCUtils.getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, UID);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				OrderInfomation orderInfomation = new OrderInfomation();
