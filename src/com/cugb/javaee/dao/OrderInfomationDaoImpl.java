@@ -160,4 +160,32 @@ public class OrderInfomationDaoImpl implements IOrderInfomationDao {
 		}
 		return ret;
 	}
+
+	@Override
+	public ArrayList<OrderInfomation> findOrderInfomationsForUser() {
+		// TODO Auto-generated method stub
+		ArrayList<OrderInfomation> orderInfomations = new ArrayList(); 
+		try {
+			String sql = "select * from orderInfomation where userId=?";
+			Connection conn = JDBCUtils.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				OrderInfomation orderInfomation = new OrderInfomation();
+				orderInfomation.setOrderId(rs.getString(1));
+				orderInfomation.setUserId(rs.getString(2));
+				orderInfomation.setOrderAddress(rs.getString(3));
+				orderInfomation.setOrderPhone(rs.getString(4));
+				orderInfomation.setOrderDate(rs.getTimestamp(5));
+				orderInfomation.setOrderPrice(rs.getFloat(6));
+				orderInfomation.setOrderState(rs.getString(7));
+				orderInfomation.setOrderRemark(rs.getString(8));
+				orderInfomations.add(orderInfomation);
+			}
+			JDBCUtils.free(rs, ps, conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return orderInfomations;
+	}
 }
