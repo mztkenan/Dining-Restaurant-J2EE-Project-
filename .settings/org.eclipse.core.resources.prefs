@@ -5,6 +5,7 @@ encoding//WebRoot/Sign.jsp=UTF-8
 encoding//WebRoot/index.jsp=UTF-8
 encoding//WebRoot/shopCart.jsp=UTF-8
 encoding//src/com/cugb/javaee/action/AddItems.java=UTF-8
+encoding//src/com/cugb/javaee/action/AdminAddDish.java=UTF-8
 encoding//src/com/cugb/javaee/action/AdminAlterDish.java=UTF-8
 encoding//src/com/cugb/javaee/action/OrderPay.java=UTF-8
 encoding//src/com/cugb/javaee/action/PageListControl.java=UTF-8

@@ -90,6 +90,7 @@
 				  <li class="lastPage"><a href="PageListControl?actiontype=pagelist&currentPageNum=${requestScope.pageModel.bottomPageNO}&target=FoodManage.jsp&property=FoodManagePageSize" title="尾页">尾页</a></i>
 				</ul>
 			</td>
+			<td><a href="FoodAdd.jsp">添加食品</a></td>
 		</tr>
 		</tbody>
 		</table>

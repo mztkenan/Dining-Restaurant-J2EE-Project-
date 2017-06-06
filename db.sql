@@ -50,9 +50,9 @@ create table product
    productId            varchar(50) not null,
    productName          varchar(100) not null,
    productPrice         float not null,
-   producRemained       int not null,
+   productRemained       int not null,
    productDescription   varchar(200),
-   producImage          varchar(100),
+   productImage          varchar(100),
    primary key (productId)
 );
 

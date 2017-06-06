@@ -92,13 +92,14 @@
 		<servlet-name>servlet9</servlet-name>
 		<url-pattern>/OrderPay</url-pattern>
 	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>servlet10</servlet-name>
-		<servlet-class>com.cugb.javaee.action.UserLogOut</servlet-class>
+		<servlet-class>com.cugb.javaee.action.AdminAddDish</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>servlet10</servlet-name>
-		<url-pattern>/UserLogOut</url-pattern>
+		<url-pattern>/AdminAddDish</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

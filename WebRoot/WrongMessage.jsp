@@ -17,7 +17,6 @@
 			if(request.getAttribute("wrongMessage")!=null){
 				message=(String)request.getAttribute("wrongMessage");
 				request.removeAttribute("wrongMessage");
-				System.out.print(message);
 		%>
 		<script type="text/javascript">
 			alert("<%=message%>");

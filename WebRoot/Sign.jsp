@@ -142,14 +142,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<p>Copyright &copy; 2017.Lengendary All rights reserved.</p>					
 		</div>
 	</div>
-<!-- //menu -->
-<!--footer-->
-	<div class="footer-bottom">
-		<div class="container">		
-			<p>Copyright &copy; 2017.Lengendary All rights reserved.</p>					
-		</div>
-	</div>
 <!--//footer-->	
+
 <!-- for bootstrap working -->
 		<script src="js/bootstrap.js"> </script>
 <!-- //for bootstrap working -->

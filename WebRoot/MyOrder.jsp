@@ -1,3 +1,4 @@
+<%@page import="java.security.Principal"%>
 <%@page import="com.cugb.javaee.dao.IOrderInfomationDao"%>
 <%@page import="com.cugb.javaee.bean.OrderInfomation"%>
 <%@page import="com.cugb.javaee.utils.PageModel"%>
@@ -19,34 +20,27 @@
 <script type="text/javascript" src="js/myorder.js"></script>
 <link rel="stylesheet" type="text/css" href="css/myorder.css"/>
 </head>
-<body>
-	<div id="content">
-   		<div id="body">
-        	<div>
-        	    <span class="orderstate">订单列表</span>
-    	    </div>
-             <div class="orderlist">
-             <div>
-        </div>
-    </div>
-    
+<body>    
 	<div id="content">
 		<div id="body">
 			<ul>
                 <li class="id">订单编号</li>
                 <li class="name">送货地址</li>
-                <li class="lowprice">下单时间</li>
-                <li class="quantity">订单总额</li>
-                <li class="operate">订单状态</li>
-                <li class="operate">订单备注</li>
+                <li class="date">下单时间</li>
+                <li class="price">订单总额</li>
+                <li class="status">订单状态</li>
 			</ul>
 			<div id="goodlist">
 				<%
-					
-					String uid=request.getParameter("UID");
-					
+					if(session.getAttribute("user")==null){
+		            	request.setAttribute("wrongMessage", "您未登录");
+		            	request.setAttribute("target", "Menu.jsp");
+		            	request.getRequestDispatcher("WrongMessage.jsp").forward(request, response);
+		            	return;
+					}
+					User user=(User)session.getAttribute("user");
+					String uid=user.getUserId();
 					IOrderInfomationDao iDao=(IOrderInfomationDao)DaoFactory.newInstance("IOrderInfomationDao");
-					System.out.print(iDao);
 					ArrayList<OrderInfomation> list = (ArrayList<OrderInfomation>) iDao.findOrderInfomationsForUser(uid);
 					if (list != null) {
 						for (int i = 0; i < list.size(); i++) {
@@ -56,9 +50,8 @@
 					<span class="orderid"><p><%=order.getOrderId()%></p></span> 
 					<span class="ordername"><%=order.getOrderAddress()%></span> 
 					<span class="orderdate"><%=order.getOrderDate()%></span>
-					<span class="caozuo"> <%=order.getOrderPrice()%></span>
-					<span class="quantity"> <%=order.getOrderState()%></span>
-					<span class="quantity"> <%=order.getOrderRemark()%></span>
+					<span class="orderprice"> <%=order.getOrderPrice()%></span>
+					<span class="orderstatus"> <%=order.getOrderState()%></span>
 				</div>
 				<%
 					}

@@ -1,19 +1,32 @@
-*{ padding:0px; margin:0px; position:relative;}
-#content{ width:960px; margin:0px auto; font-size:12px; font-family:"宋体", Arial, Helvetica, sans-serif; color:#404040;  height:600px; }
-#content a{ text-decoration:none;}
+*{padding:0px;margin:0px;position:relative; text-decoration:none;}
+#content{width:960px;height:600px;margin:0px auto;}
+#body{ text-align:left; padding:15px 0px;}
+#body a{ color:blue;}
+#body a:hover{ color:red;}
+#tu{  height:27px; background:url(../images/bg_cart_pic.gif) no-repeat;margin-bottom:15px;margin-top:0px;}
+#body ul{ display:block; width:960px; height:29px; border-top:2px solid #dFc9B2; border-bottom:1px solid #dFc9B2; overflow:hidden; list-style-type:none; color:#8a7152;background:#D7D7D7}
+#body ul li{ float:left; line-height:28px; text-align:center;}
+#body ul li.id{ width:150px;}
+#body ul li.name{ width:200px;}
+#body ul li.date{ width:200px;}
+#body ul li.price{ width:200px;}
+#body ul li.status{ width:200px;}
+#body ul li.remark{ width:200px;}
+#goodlist{ border-bottom:1px solid #dFc9B2;}
+
+#goodlist div.goodinfo{ height:74px; border-bottom:1px solid #dcdcdc;position:relative;}
+#goodlist div.goodinfo span{ display:inline-block; text-align:center; height:44px; padding-top:30px; border-right:1px solid #dcdcdc; overflow:hidden;}
+#goodlist div.goodinfo span.orderid{ width:140px; height:56px; padding:9px 0px; padding-left:20px;   text-align:left;}
+#goodlist div.goodinfo span.orderid p{ position:absolute; left:86px; top:30px;}
+
+#goodlist div.goodinfo span.ordername{width:180px;}
+#goodlist div.goodinfo span.orderdate{ width:180px;}
+#goodlist div.goodinfo span.orderprice{ width:180px;}
+#goodlist div.goodinfo span.orderstatus{ width:220px;}
+#goodlist div.goodinfo span.remark{ width:220px;}
 
 
-#body{ padding:20px 0px; text-align:left;}
-#body div span.orderstate{ display:inline-block; width:138px; height:30px; background:url(../images/pic_myddorder.gif) no-repeat 0px -50px; line-height:30px; text-align:center;}
 
 
-#body div.orderlist{ padding:20px 10px; border:1px solid #A4D7CA; top:-1px;}
 
-#body div.orderlist table{ width:100%; border:none;}
-#body div.orderlist table tr.head td{ height:25px; line-height:25px; border:1px solid #D0D0D0; border-left:none; background:url(../images/tableone.gif) repeat-x; font-weight:bold; text-align:center; }
-#body div.orderlist table tr td{ border-bottom:1px solid #ddd; line-height:30px; text-align:center; padding:0px 4px;}
 
-#body div.orderlist table tr:hover{ background-color:#fffac5;}
-#body div.orderlist table tr td a.xiangqin{ text-decoration:none;}
-#body div.orderlist table tr td a.xiangqin:hover{ color:red;}
-#body div.orderlist table tr td a.xiangqin:visited{ color:green;}

@@ -19,7 +19,7 @@ public class ProductService {
 	
 	public PageModel<Product> showPagelist(int currentPage,int pageSize) {
 		
-		String sql="select productid ProductId,productname ProductName,productImage ProductImage,productPrice  ProductPrice,productDescription ProductDescription from product limit ?,?";
+		String sql="select productid ProductId,productRemained ProductRemained,productname ProductName,productImage ProductImage,productPrice  ProductPrice,productDescription ProductDescription from product limit ?,?";
 		int recordStartNum = (currentPage-1)*pageSize;
 		Object[] params = {recordStartNum,pageSize};
 		ArrayList<Product> list=iDao.findDishesBySize(sql,params);

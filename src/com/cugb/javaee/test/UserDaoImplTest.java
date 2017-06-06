@@ -21,14 +21,14 @@ public class UserDaoImplTest {
 		user.setPassword("1");
 		user.setUserType(1);
 	}
-
+/*
 	@Test
 	public void testFindUsers() {
 		ArrayList<User> list = (ArrayList<User>) iUserDao.findUsers();
 		
 		//fail("Not yet implemented");
 	}
-/*
+
 	@Test
 	public void testInsertUser() {
 		iUserDao.insertUser(user);
@@ -73,4 +73,10 @@ public class UserDaoImplTest {
 		
 		//fail("Not yet implemented");
 	}*/
+	
+	@Test
+	public void testFindUser() {
+		iUserDao.findUser("1");
+		//fail("Not yet implemented");
+	}
 }

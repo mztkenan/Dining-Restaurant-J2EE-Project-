@@ -28,7 +28,6 @@
 							<% 
 				                
 				               ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("ProductList");
-				               System.out.print(list.size());
 				               
 				               if(list!=null&&list.size()>0)
 				               {

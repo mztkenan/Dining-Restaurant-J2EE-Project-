@@ -22,7 +22,7 @@ public class AdminAddDish extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//向数据库的product插入一条数据
+		//鍚戞暟鎹簱鐨刾roduct鎻掑叆涓�鏉℃暟鎹�
 		IProductDao iProductDao = (IProductDao) DaoFactory.newInstance("IProductDao");
 		String productId = String.valueOf(iProductDao.countRows()+1);
 		String productName = request.getParameter("productName");
@@ -32,8 +32,8 @@ public class AdminAddDish extends HttpServlet {
 		String productImage = request.getParameter("productImage");
 		Product product = new Product(productId,productName,productPrice,productRemained,productDescription,productImage);
 		iProductDao.insertProduct(product);
-		// 重定向到首页，URL重写方式  
-        String url = response.encodeRedirectURL(request.getContextPath() + "/index.jsp");  
+		// 閲嶅畾鍚戝埌棣栭〉锛孶RL閲嶅啓鏂瑰紡  
+        String url = response.encodeRedirectURL(request.getContextPath() + "/Menu.jsp");  
         response.sendRedirect(url);  
 	}
 

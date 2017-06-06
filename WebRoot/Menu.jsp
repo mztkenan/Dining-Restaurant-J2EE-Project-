@@ -74,7 +74,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="shopCart.jsp">购物车</a></li>
 						<li><a href="MyOrder.jsp">订单</a></li>
 						<%
+						
 							if(user!=null&&user.getUserType()==2){
+								
 						%>
 						<li><a href="FoodManage.jsp">管理员入口</a></li>
 						<%

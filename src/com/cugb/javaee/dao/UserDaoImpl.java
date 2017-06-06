@@ -167,5 +167,28 @@ public class UserDaoImpl implements IUserDao {
 		}
 		return ret;
 	}
+
+	@Override
+	public User findUser(String username) {
+		// TODO Auto-generated method stub
+		User user = new User(); 
+		try {
+			String sql = "select * from user where username=?";
+			Connection conn = JDBCUtils.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, username);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				user.setUserId(rs.getString(1));
+				user.setUsername(rs.getString(2));
+				user.setPassword(rs.getString(3));
+				user.setUserType(rs.getInt(4));
+			}
+			JDBCUtils.free(rs, ps, conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return user;
+	}
 	
 }

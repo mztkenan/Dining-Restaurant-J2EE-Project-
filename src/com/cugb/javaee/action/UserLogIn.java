@@ -41,7 +41,8 @@ public class UserLogIn extends HttpServlet {
             response.addCookie(cookie);  
             // 登录成功后要存入用户的登录状态，key是用户对象的String形式,
             //value就是用户对象(model)！！别的页面应该能用到  
-            session.setAttribute("user", user);
+            User user2 = iUserDao.findUser(user.getUsername());
+            session.setAttribute("user", user2);
             // 重定向到首页，URL重写方式  
             String url = response.encodeRedirectURL(request  
                     .getContextPath() + "/Menu.jsp");  
