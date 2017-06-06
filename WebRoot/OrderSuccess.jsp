@@ -13,7 +13,7 @@
        <div id="shopbar"><a href="#">我的购物车</a></div>
        <div id="details">
           <p id="top"><span id="okimg"></span><span id="haospan">订单已提交，*日送达</span></p>
-          <p id="bottom">*您可以在<a href="MyOrder.html">我的订单</a>中查看或取消您的订单，由于系统需进行订单预处理，您可能不会立刻查询到刚提交的订单</p>
+          <p id="bottom">*您可以在<a href="MyOrder.jsp">我的订单</a>中查看或取消您的订单，由于系统需进行订单预处理，您可能不会立刻查询到刚提交的订单</p>
        </div>
     </div>
  </div>

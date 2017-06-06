@@ -13,7 +13,7 @@ import com.cugb.javaee.bean.CartItem;
 import com.mysql.jdbc.PingTarget;
 
 public class DeleteItems extends HttpServlet {
-
+	//XXX 似乎没用，可以修改
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

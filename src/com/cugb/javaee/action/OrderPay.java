@@ -59,14 +59,14 @@ public class OrderPay extends HttpServlet{
 		}
 		else
 		for(int i=0; i < cartItemArray.size() ; i++){
-			//鏀瑰彉璁㈠崟鐘舵��
+			//XXX,插入订单项信息 
+			
 			Product product = iProductDao.findProduct(cartItemArray.get(i).getDish().getProductId());
 			Float prise = (Float) (cartItemArray.get(i).getQuantity()*product.getProductPrice());
 			String OrderId=iOrderInfomationDao.countOrderInfomation();
 			OrderInfomation orderInfomation = new OrderInfomation(OrderId,user.getUserId(),orderAddress,orderPhone,dateTime,prise,"Unpay",orderText);
 			iOrderInfomationDao.insertOrderInfomation(orderInfomation);
 			iOrderInfomationDao.updateOrderInfomation(user.getUserId(), OrderId, "Unpay", "Paied");
-			//鍑忓皯搴撳瓨
 			
 			iProductDao.updateProductNumber(cartItemArray.get(i).getDish().getProductId(), cartItemArray.get(i).getQuantity());
 		}

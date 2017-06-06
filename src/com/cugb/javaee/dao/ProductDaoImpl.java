@@ -120,7 +120,7 @@ public class ProductDaoImpl extends BaseDAO implements IProductDao {
 
 	@Override
 	public int getTotalNum() {
-		// TODO Auto-generated method stub
+		// XXX 重复
 		String sqlTable="product";
 		return getTotalRecords(sqlTable);
 	}
@@ -176,7 +176,7 @@ public class ProductDaoImpl extends BaseDAO implements IProductDao {
 
 	@Override
 	public int countRows() {
-		// TODO Auto-generated method stub
+		// XXX 可以使用父类
 		int ret = 0;
 		try {
 			String sql = "select count(*) from product";

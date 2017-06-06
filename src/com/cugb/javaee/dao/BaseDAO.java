@@ -45,6 +45,7 @@ public class BaseDAO {
 		return objs;
 	}
 	public ArrayList findObjs(String sql,Object[] params,Class clazz){
+		//XXX 通用的参数加入方法，值得进一步学习
 		Connection conn = null;
 		PreparedStatement ps =null;
 		ResultSet rs = null;
